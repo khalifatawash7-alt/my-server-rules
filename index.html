@@ -8,8 +8,7 @@
         :root {
             --main-green: #2ecc71;
             --dark-bg: #0a0a0c;
-            /* لون خلفية الكتاب (ورق قديم قليلاً) */
-            --book-paper: #fdfcf0; 
+            --card-transparent: rgba(22, 22, 30, 0.4); 
         }
 
         body { 
@@ -17,231 +16,168 @@
             color: white; 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             margin: 0; padding: 0;
-            overflow-x: hidden;
+            display: flex; flex-direction: column; align-items: center;
         }
 
         .hero-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            background-image: linear-gradient(rgba(10, 10, 12, 0.8), rgba(10, 10, 12, 0.8)), url('https://cdn.discordapp.com/attachments/1463594306525724704/1500428814478610512/IMG_5109.png?ex=69f866b9&is=69f71539&hm=7e21bda0a3f767d54507020675fddce0af1195647386f898edf141522ab296b1&');
-            background-position: center; background-size: cover;
-            background-attachment: fixed;
+            background-image: linear-gradient(rgba(10, 10, 12, 0.85), rgba(10, 10, 12, 0.85)), url('https://cdn.discordapp.com/attachments/1463594306525724704/1500428814478610512/IMG_5109.png?ex=69f866b9&is=69f71539&hm=7e21bda0a3f767d54507020675fddce0af1195647386f898edf141522ab296b1&');
+            background-position: center; background-size: cover; background-attachment: fixed;
         }
 
-        /* تنسيق الهيدر */
-        .header-main { text-align: center; padding: 60px 20px 20px 20px; }
-        .header-main img { width: 130px; border-radius: 50%; border: 4px solid var(--main-green); box-shadow: 0 0 20px rgba(46, 204, 113, 0.3); }
+        .header-section { text-align: center; padding: 70px 20px 40px 20px; }
+        .header-section img { width: 140px; border-radius: 50%; border: 4px solid var(--main-green); box-shadow: 0 0 25px rgba(46, 204, 113, 0.4); margin-bottom: 15px; }
         
-        /* كلمة نزوه عريضة جداً */
-        .header-main h1 { 
-            margin: 15px 0 5px 0; 
-            font-size: 3.5em; 
-            font-weight: 900; 
-            letter-spacing: -1px;
-            text-shadow: 3px 3px 15px rgba(0,0,0,0.7);
-        }
-        .header-main h3 { margin: 0; color: var(--main-green); letter-spacing: 6px; font-weight: bold; }
+        /* تغيير كلمة نزوه إلى قوانين بخط عريض */
+        .header-section h2 { margin: 0; font-size: 3.5em; font-weight: 900; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); letter-spacing: 2px; }
+        .header-section h3 { margin: 5px 0 0 0; font-size: 1.4em; color: var(--main-green); letter-spacing: 5px; font-weight: bold; }
 
-        .main-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 50px;
-            padding: 40px 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+        .rules-container { width: 92%; max-width: 850px; padding-bottom: 60px; }
 
-        /* الأزرار (يسار) */
-        .menu-list {
-            flex: 1;
-            min-width: 280px;
-            max-width: 350px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .menu-item {
-            background: rgba(22, 22, 30, 0.6);
-            backdrop-filter: blur(10px);
+        details { 
+            background-color: var(--card-transparent); 
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px);
+            margin-bottom: 18px; 
+            border-radius: 15px; 
             border: 1px solid rgba(46, 204, 113, 0.2);
-            color: white;
-            padding: 22px;
-            border-radius: 15px;
-            cursor: pointer;
-            font-size: 1.2em;
-            font-weight: bold;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            transition: all 0.3s ease;
         }
 
-        .menu-item:hover, .menu-item.active {
-            background: var(--main-green);
-            color: #000;
-            transform: translateX(-15px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-        }
+        details[open] { border: 1px solid var(--main-green); background-color: rgba(22, 22, 30, 0.5); }
 
-        /* الكتاب (يمين) */
-        .book-view {
-            flex: 2;
-            min-width: 380px;
-            max-width: 750px;
-            min-height: 550px;
-            background: var(--book-paper);
-            border-radius: 5px 40px 40px 5px;
-            box-shadow: 30px 30px 60px rgba(0,0,0,0.6), inset 15px 0 30px rgba(0,0,0,0.15);
-            color: #1a1a1a;
-            padding: 50px;
-            position: relative;
-            transform: perspective(1000px) rotateY(-3deg);
-            border-left: 20px solid #27ae60;
-            background-image: linear-gradient(90deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0) 5%);
-        }
+        summary { padding: 25px; cursor: pointer; font-weight: bold; font-size: 1.25em; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+        summary::after { content: '📖'; font-size: 1.2em; opacity: 0.7; }
 
-        .book-content h2 {
-            font-size: 2em;
-            margin-bottom: 25px;
-            border-bottom: 3px solid var(--main-green);
-            display: inline-block;
-            padding-bottom: 5px;
-        }
+        .content { padding: 0 25px 25px 25px; line-height: 2; color: #f0f0f0; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 1.1em; }
 
-        .book-content div {
-            line-height: 2.2;
-            font-size: 1.25em;
-            font-weight: 500;
-        }
-
-        .discord-widget {
-            width: 100%;
-            height: 400px;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-
-        /* الفوتر */
         footer {
             width: 100%;
-            background: rgba(15, 15, 20, 0.98);
+            background-color: rgba(15, 15, 20, 0.95);
             padding: 60px 0 30px 0;
-            margin-top: 80px;
-            border-top: 4px solid var(--main-green);
-            text-align: center;
+            margin-top: auto;
+            border-top: 3px solid var(--main-green);
         }
 
-        .footer-grid {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
+        .footer-content {
             max-width: 1100px;
-            margin: 0 auto 40px auto;
-            padding: 0 20px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 0 40px;
         }
 
-        .footer-col h4 { color: var(--main-green); font-size: 1.4em; margin-bottom: 20px; }
-        .footer-col a { color: #ccc; text-decoration: none; display: block; margin: 10px 0; transition: 0.3s; }
-        .footer-col a:hover { color: var(--main-green); }
+        .footer-section { margin-bottom: 40px; min-width: 250px; flex: 1; }
+        .footer-section h4 { color: var(--main-green); margin-bottom: 20px; font-size: 1.4em; border-right: 4px solid var(--main-green); padding-right: 15px; }
+        .footer-section a { color: #ccc; text-decoration: none; display: block; margin-bottom: 12px; font-size: 1em; transition: 0.3s; }
+        .footer-section a:hover { color: var(--main-green); padding-right: 5px; }
 
-        .copy-text { color: #555; font-size: 0.9em; border-top: 1px solid #222; padding-top: 20px; }
+        .discord-widget { width: 100%; height: 300px; border-radius: 10px; margin-top: 10px; border: none; }
 
+        .copyright { text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; margin-top: 20px; font-size: 0.85em; color: #666; width: 100%; }
     </style>
 </head>
 <body>
 
     <div class="hero-bg"></div>
 
-    <div class="header-main">
+    <div class="header-section">
         <img src="https://cdn.discordapp.com/attachments/1463594306525724704/1500428814478610512/IMG_5109.png?ex=69f866b9&is=69f71539&hm=7e21bda0a3f767d54507020675fddce0af1195647386f898edf141522ab296b1&" alt="Logo">
-        <h1>نزوه</h1>
-        <h3>NAZWA RP</h3>
+        <h2>قوانين</h2>
+        <h3>NAZWA</h3>
     </div>
 
-    <div class="main-container">
+    <div class="rules-container">
         
-        <!-- القائمة -->
-        <div class="menu-list">
-            <div class="menu-item active" onclick="updateBook('general', this)">⚖️ قوانين عامة <span>◀</span></div>
-            <div class="menu-item" onclick="updateBook('police', this)">👮 قوانين الشرطة <span>◀</span></div>
-            <div class="menu-item" onclick="updateBook('gangs', this)">⚔️ قوانين العصابات <span>◀</span></div>
-            <div class="menu-item" onclick="updateBook('staff', this)">👥 طاقم العمل <span>◀</span></div>
-        </div>
-
-        <!-- الكتاب -->
-        <div class="book-view">
-            <div id="page-content" class="book-content">
-                <h2 id="page-title">قوانين عامة</h2>
-                <div id="page-body">
-                    • احترام الجميع وعدم السب أو العنصرية.<br>
-                    • الالتزام بالشخصية داخل الرول بلاي.<br>
-                    • الخوف على الحياة (Fear RP).<br>
-                    • ممنوع استخدام معلومات خارج اللعبة (Meta Gaming).<br>
-                    • ممنوع القتل أو السرقة بدون سبب RP واضح.
-                </div>
+        <details>
+            <summary>⚖️ قوانين عامة</summary>
+            <div class="content">
+                • احترام الجميع وعدم السب أو العنصرية.<br>
+                • الالتزام بالشخصية داخل الرول بلاي.<br>
+                • الخوف على الحياة (Fear RP).<br>
+                • ممنوع استغلال معلومات خارج اللعبة (Meta Gaming).
             </div>
-        </div>
+        </details>
+        
+        <details>
+            <summary>👮 قوانين الشرطة</summary>
+            <div class="content">
+                • احترام المواطنين والتعامل الرسمي.<br>
+                • استخدام السلاح يكون عند الضرورة فقط.<br>
+                • الالتزام بالرتب والأوامر العسكرية.
+            </div>
+        </details>
+
+        <details>
+            <summary>⚔️ قوانين العصابات</summary>
+            <div class="content">
+                • لازم سبب قوي للهجوم.<br>
+                • ممنوع قتل الرهائن بدون سبب رول بلاي.<br>
+                • الالتزام بالواقعية في العمليات الإجرامية.
+            </div>
+        </details>
+
+        <details>
+            <summary>🚑 قوانين الإسعاف</summary>
+            <div class="content">
+                • علاج المصابين في أسرع وقت.<br>
+                • ممنوع التدخل في السيناريوهات القائمة حتى تنتهي.<br>
+                • احترام الطاقم الطبي.
+            </div>
+        </details>
+
+        <details>
+            <summary>🏛️ قوانين المحكمة</summary>
+            <div class="content">
+                • احترام القاضي وهيئة المحكمة.<br>
+                • تقديم الأدلة والشهود بشكل واقعي.
+            </div>
+        </details>
+
+        <details>
+            <summary>👨‍💼 قوانين المواطنين</summary>
+            <div class="content">
+                • الالتزام بالنظام العام للمدينة.<br>
+                • عدم إثارة الفوضى بدون سبب سيناريو واضح.
+            </div>
+        </details>
+
+        <details>
+            <summary>🛠️ قوانين الميكانيكي</summary>
+            <div class="content">
+                • تصليح المركبات في الورشة المخصصة.<br>
+                • الالتزام بالأسعار المحددة.
+            </div>
+        </details>
 
     </div>
 
     <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>تواصل معنا</h4>
-                <a href="https://discord.gg/rGkrgHKK6j" target="_blank">ديسكورد</a>
-                <a href="https://www.instagram.com/nazwa_rp_1" target="_blank">إنستغرام</a>
-                <a href="mailto:nazwa11rp@gmail.com">البريد الإلكتروني</a>
-            </div>
+        <div class="footer-content">
             <div class="footer-section">
-                <h4 style="color: var(--main-green);">حول NAZWA</h4>
-                <p style="color: #aaa; max-width: 300px;">أفضل تجربة رول بلاي واقعية في مدينة نزوه. التزام، متعة، وواقعية.</p>
+                <h4>طاقم العمل (المتواجدون)</h4>
+                <iframe src="https://discord.com/widget?id=1328458763593879644&theme=dark" class="discord-widget" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+            </div>
+
+            <div class="footer-section">
+                <h4>تواصل معنا</h4>
+                <a href="https://discord.gg/rGkrgHKK6j" target="_blank">الديسكورد</a>
+                <a href="https://www.instagram.com/nazwa_rp_1" target="_blank">إنستغرام</a>
+                <a href="mailto:nazwa11rp@gmail.com">الإيميل: nazwa11rp@gmail.com</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>حول السيرفر</h4>
+                <p style="color: #aaa; font-size: 0.95em; line-height: 1.6;">سيرفر نزوه - NAZWA RP<br>تجربة رول بلاي واقعية وفريدة.</p>
             </div>
         </div>
-        <div class="copy-text">
-            جميع الحقوق محفوظة لصالح سيرفر نزوه - NAZWA RP © 2026
+        <div class="copyright">
+            حقوق الطبع والنشر © NAZWA RP 2026.
         </div>
     </footer>
-
-    <script>
-        const contentData = {
-            general: {
-                title: "⚖️ قوانين عامة",
-                body: "• احترام الجميع وعدم السب أو العنصرية.<br>• الالتزام بالشخصية داخل الرول بلاي.<br>• الخوف على الحياة (Fear RP).<br>• ممنوع استخدام معلومات خارج اللعبة (Meta Gaming).<br>• ممنوع القتل أو السرقة بدون سبب RP واضح.<br>• ممنوع الخروج من السيرفر وقت السيناريو."
-            },
-            police: {
-                title: "👮 قوانين الشرطة",
-                body: "• احترام المواطنين والتعامل الرسمي.<br>• استخدام السلاح يكون عند الضرورة فقط.<br>• إعطاء تحذير قبل إطلاق النار.<br>• الالتزام بالأوامر والرتب العسكرية.<br>• الحفاظ على أمن المدينة والنظام العام."
-            },
-            gangs: {
-                title: "⚔️ قوانين العصابات",
-                body: "• لازم سبب قوي لأي هجوم أو خطف.<br>• ممنوع قتل الرهائن بدون سبب RP.<br>• احترام التحالفات والعداوات.<br>• الالتزام بالواقعية في العمليات.<br>• الالتزام بعدد أفراد العصابة المسموح."
-            },
-            staff: {
-                title: "👥 طاقم العمل",
-                body: "يمكنك رؤية طاقم العمل المتواجد حالياً في السيرفر عبر النافذة أدناه:<br><iframe src='https://discord.com/widget?id=1328458763593879644&theme=dark' class='discord-widget' allowtransparency='true' frameborder='0'></iframe>"
-            }
-        };
-
-        function updateBook(key, element) {
-            // تأثير التغيير
-            const page = document.getElementById('page-content');
-            page.style.opacity = '0';
-            
-            setTimeout(() => {
-                document.getElementById('page-title').innerHTML = contentData[key].title;
-                document.getElementById('page-body').innerHTML = contentData[key].body;
-                page.style.opacity = '1';
-            }, 200);
-
-            // تحديث حالة الأزرار
-            document.querySelectorAll('.menu-item').forEach(item => item.classList.remove('active'));
-            element.classList.add('active');
-        }
-    </script>
 
 </body>
 </html>
