@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>قوانين السيرفر</title>
+    <title>قوانين سيرفر نزوه</title>
     <style>
         :root {
             --main-green: #2ecc71;
-            --dark-bg: #0d0d12;
-            --card-bg: #1a1a24;
+            --dark-bg: #0a0a0c;
+            --card-bg: #16161e;
         }
 
         body { 
@@ -19,111 +19,148 @@
             padding: 0;
             display: flex; 
             flex-direction: column; 
-            align-items: center; 
-            background-image: linear-gradient(rgba(13, 13, 18, 0.95), rgba(13, 13, 18, 0.95)), url('https://cdn.discordapp.com/attachments/1463594306525724704/1500428814478610512/IMG_5109.png?ex=69f866b9&is=69f71539&hm=7e21bda0a3f767d54507020675fddce0af1195647386f898edf141522ab296b1&');
-            background-attachment: fixed;
-            background-position: center;
-            background-size: cover;
+            align-items: center;
         }
 
+        /* غلاف عريض خلفية الموقع */
+        .hero-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: linear-gradient(rgba(10, 10, 12, 0.9), rgba(10, 10, 12, 0.9)), url('https://cdn.discordapp.com/attachments/1463594306525724704/1500428814478610512/IMG_5109.png?ex=69f866b9&is=69f71539&hm=7e21bda0a3f767d54507020675fddce0af1195647386f898edf141522ab296b1&');
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        /* شريط التنقل العلوي */
         .navbar {
             width: 100%;
-            padding: 15px 5%;
+            padding: 20px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(26, 26, 36, 0.8);
-            box-sizing: border-box;
+            background: rgba(22, 22, 30, 0.7);
+            backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 100;
+            border-bottom: 1px solid rgba(46, 204, 113, 0.2);
         }
 
-        .nav-right { display: flex; gap: 10px; }
         .nav-btn {
             background: rgba(46, 204, 113, 0.1);
             border: 1px solid var(--main-green);
             color: white;
-            padding: 8px 20px;
-            border-radius: 20px;
+            padding: 10px 25px;
+            border-radius: 30px;
             text-decoration: none;
-            font-size: 0.9em;
+            font-size: 0.95em;
             transition: 0.3s;
         }
-        .nav-btn.active { background: var(--main-green); color: black; font-weight: bold; }
 
+        .nav-btn:hover { background: var(--main-green); color: black; }
+
+        /* الهيدر مع أيقونة الكتاب */
         .header-section {
             text-align: center;
-            padding: 40px 20px;
+            padding: 60px 20px;
             width: 100%;
         }
 
-        .header-section img { width: 120px; filter: drop-shadow(0 0 10px var(--main-green)); }
-        .header-section h1 { 
-            font-size: 2.5em; 
-            margin: 10px 0; 
-            background: linear-gradient(to bottom, #fff, var(--main-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .book-icon {
+            font-size: 80px;
+            margin-bottom: 15px;
+            display: block;
+            filter: drop-shadow(0 0 15px var(--main-green));
         }
 
-        .rules-container { width: 90%; max-width: 700px; padding-bottom: 50px; }
+        .header-section h1 { 
+            font-size: 3em; 
+            margin: 0; 
+            color: white;
+            text-transform: uppercase;
+        }
+
+        .header-section p {
+            color: var(--main-green);
+            letter-spacing: 2px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* حاوية القوانين */
+        .rules-container { width: 90%; max-width: 800px; padding-bottom: 100px; }
 
         details { 
             background-color: var(--card-bg); 
-            margin-bottom: 12px; 
-            border-radius: 10px; 
-            border: 1px solid rgba(46, 204, 113, 0.2);
-            transition: 0.3s;
+            margin-bottom: 15px; 
+            border-radius: 12px; 
+            border: 1px solid rgba(46, 204, 113, 0.1);
+            transition: 0.4s;
         }
 
-        details[open] { border: 1px solid var(--main-green); box-shadow: 0 0 15px rgba(46, 204, 113, 0.1); }
+        details[open] { 
+            border: 1px solid var(--main-green); 
+            box-shadow: 0 0 20px rgba(46, 204, 113, 0.15); 
+        }
 
         summary { 
-            padding: 20px; 
+            padding: 25px; 
             cursor: pointer; 
             font-weight: bold; 
-            font-size: 1.1em; 
+            font-size: 1.2em; 
             list-style: none; 
-            outline: none; 
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        summary::after { content: '▼'; font-size: 0.8em; color: var(--main-green); transition: 0.3s; }
-        details[open] summary::after { content: '▲'; }
+        summary::after { 
+            content: '📂'; 
+            font-size: 1.2em; 
+            transition: 0.3s; 
+        }
+        details[open] summary::after { content: '📖'; }
 
         .content { 
-            padding: 0 20px 20px 20px; 
-            line-height: 1.9; 
-            color: #b0b0b0; 
+            padding: 0 25px 25px 25px; 
+            line-height: 2; 
+            color: #d1d1d6; 
             border-top: 1px solid rgba(255,255,255,0.05);
-            padding-top: 15px;
+            padding-top: 20px;
         }
+
+        .content br { margin-bottom: 10px; }
     </style>
 </head>
 <body>
 
+    <div class="hero-bg"></div>
+
     <div class="navbar">
         <div class="nav-right">
-            <a href="#" class="nav-btn active">القوانين</a>
             <a href="#" class="nav-btn">الرئيسية</a>
         </div>
+        <img src="https://cdn.discordapp.com/attachments/1463594306525724704/1500428814478610512/IMG_5109.png?ex=69f866b9&is=69f71539&hm=7e21bda0a3f767d54507020675fddce0af1195647386f898edf141522ab296b1&" width="50" style="border-radius: 50%;">
         <div class="nav-left">
-            <a href="#" class="nav-btn" style="background: var(--main-green); color: black;">تسجيل الدخول</a>
+            <a href="#" class="nav-btn" style="background: var(--main-green); color: black;">الدخول</a>
         </div>
     </div>
 
     <div class="header-section">
-        <img src="https://cdn.discordapp.com/attachments/1463594306525724704/1500428814478610512/IMG_5109.png?ex=69f866b9&is=69f71539&hm=7e21bda0a3f767d54507020675fddce0af1195647386f898edf141522ab296b1&" alt="Logo">
-        <h1>القوانين</h1>
-        <p style="color: var(--main-green); font-size: 0.8em; letter-spacing: 1px;">PLEASE NOTE THE RULES OF THE SERVER</p>
+        <span class="book-icon">📖</span>
+        <h1>قوانين السيرفر</h1>
+        <p>RULES & REGULATIONS</p>
     </div>
 
     <div class="rules-container">
+        
         <details>
-            <summary>⚖️ قوانين عامة</summary>
+            <summary>⚖️ قوانين عامة (الكل)</summary>
             <div class="content">
                 • احترام الجميع وعدم السب أو العنصرية.<br>
                 • الالتزام بالشخصية داخل الرول بلاي.<br>
@@ -210,6 +247,7 @@
                 • الالتزام بأسعار السيرفر.
             </div>
         </details>
+
     </div>
 
 </body>
