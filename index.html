@@ -1,272 +1,471 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>قوانين سيرفر نزوه</title>
-    <style>
-        :root {
-            --main-green: #2ecc71;
-            --dark-bg: #121214;
-            --card-bg: #1c1c1f;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        body {
-            background-color: var(--dark-bg);
-            color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+<title>NAZWA RP</title>
 
-        /* عنوان الصفحة */
-        .main-header {
-            text-align: center;
-            padding: 60px 0;
-        }
-        .main-header h1 {
-            font-size: 5.5rem;
-            font-weight: 900;
-            margin: 0;
-            color: #fff;
-            text-shadow: 0 5px 15px rgba(0,0,0,0.5);
-        }
-        .main-header p {
-            color: var(--main-green);
-            letter-spacing: 8px;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
+<style>
 
-        /* الحاوية الأساسية */
-        .container {
-            display: flex;
-            width: 90%;
-            max-width: 1200px;
-            gap: 25px;
-            margin-bottom: 80px;
-        }
+:root{
+    --green:#2ecc71;
+    --bg:#17191f;
+    --box:#20232b;
+    --box2:#2a2e38;
+}
 
-        /* القائمة الجانبية (الأزرار) */
-        .sidebar {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        .nav-btn {
-            background: var(--card-bg);
-            border: 1px solid #2d2d31;
-            color: white;
-            padding: 22px;
-            border-radius: 12px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1.1rem;
-            text-align: right;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
+body{
+    background:var(--bg);
+    color:white;
+    font-family:'Segoe UI',sans-serif;
+}
 
-        .nav-btn:hover {
-            border-color: var(--main-green);
-            background: #252529;
-            transform: scale(1.02);
-        }
+/* الهيدر */
 
-        .nav-btn.active {
-            background: var(--main-green);
-            color: #000;
-            border-color: var(--main-green);
-        }
+.header{
+    text-align:center;
+    padding:60px 20px 40px;
+}
 
-        /* منطقة المحتوى (بدل الكتاب) */
-        .content-box {
-            flex: 2.5;
-            background: var(--card-bg);
-            border-radius: 15px;
-            padding: 40px;
-            border-right: 8px solid var(--main-green);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-            min-height: 500px;
-        }
+.header h1{
+    font-size:5rem;
+    font-weight:900;
+    margin-bottom:10px;
+    text-shadow:0 0 20px rgba(46,204,113,.4);
+}
 
-        .content-box h2 {
-            font-size: 2.5rem;
-            margin-top: 0;
-            color: var(--main-green);
-            border-bottom: 2px solid #2d2d31;
-            padding-bottom: 15px;
-        }
+.header p{
+    color:var(--green);
+    letter-spacing:8px;
+    font-weight:bold;
+    font-size:1.1rem;
+}
 
-        .content-box ul {
-            list-style: none;
-            padding: 0;
-        }
+/* الكونتينر */
 
-        .content-box li {
-            font-size: 1.3rem;
-            margin-bottom: 18px;
-            line-height: 1.6;
-            display: flex;
-            align-items: flex-start;
-        }
+.main-container{
+    width:95%;
+    max-width:1300px;
+    margin:auto;
+    display:flex;
+    gap:20px;
+    align-items:flex-start;
+    padding-bottom:70px;
+}
 
-        .content-box li::before {
-            content: "•";
-            color: var(--main-green);
-            font-weight: bold;
-            margin-left: 15px;
-            font-size: 1.8rem;
-        }
+/* المحتوى */
 
-        /* الفوتر (طاقم العمل) */
-        footer {
-            width: 100%;
-            background: #09090b;
-            padding: 60px 0 30px 0;
-            border-top: 2px solid #2d2d31;
-        }
+.content-box{
+    flex:1;
+    background:var(--box);
+    border-radius:22px;
+    padding:35px;
+    border:1px solid rgba(255,255,255,.05);
+    box-shadow:0 10px 35px rgba(0,0,0,.35);
+    min-height:550px;
+}
 
-        .footer-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 40px;
-            padding: 0 20px;
-        }
+.content-box h2{
+    color:var(--green);
+    margin-bottom:25px;
+    font-size:2rem;
+}
 
-        .footer-col h4 {
-            color: var(--main-green);
-            font-size: 1.4rem;
-            margin-bottom: 20px;
-        }
+.rules-list{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
 
-        .footer-col p, .footer-col a {
-            color: #999;
-            text-decoration: none;
-            line-height: 2;
-        }
+.rule-item{
+    background:var(--box2);
+    padding:18px;
+    border-radius:14px;
+    line-height:1.9;
+    transition:.2s;
+    border:1px solid rgba(255,255,255,.04);
+}
 
-        .discord-frame {
-            width: 100%;
-            height: 300px;
-            border-radius: 10px;
-            border: none;
-        }
+.rule-item:hover{
+    transform:translateX(-6px);
+    background:#343946;
+}
 
-        .copy {
-            text-align: center;
-            margin-top: 40px;
-            color: #444;
-            font-size: 0.9rem;
-        }
-    </style>
+/* القائمة */
+
+.sidebar{
+    width:320px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.menu-btn{
+    background:var(--box);
+    color:white;
+    border:none;
+    border-radius:14px;
+    padding:18px;
+    text-align:right;
+    font-size:1rem;
+    font-weight:700;
+    cursor:pointer;
+    transition:.2s;
+    border:1px solid rgba(255,255,255,.05);
+}
+
+.menu-btn:hover{
+    background:#2b303a;
+}
+
+.menu-btn.active{
+    background:var(--green);
+    color:black;
+}
+
+/* الفوتر */
+
+footer{
+    border-top:3px solid var(--green);
+    background:#111318;
+    padding:50px 20px;
+}
+
+.footer-content{
+    max-width:1300px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:30px;
+}
+
+.footer-box{
+    background:var(--box);
+    padding:25px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.05);
+}
+
+.footer-box h3{
+    color:var(--green);
+    margin-bottom:20px;
+}
+
+.footer-box p,
+.footer-box a{
+    color:#aaa;
+    line-height:2;
+    text-decoration:none;
+}
+
+.footer-box a:hover{
+    color:white;
+}
+
+/* زر الديسكورد */
+
+.discord-btn{
+    display:inline-block;
+    margin-top:15px;
+    background:var(--green);
+    color:black !important;
+    padding:12px 20px;
+    border-radius:12px;
+    font-weight:bold;
+}
+
+/* الحقوق */
+
+.copyright{
+    text-align:center;
+    margin-top:40px;
+    color:#666;
+    font-size:.9rem;
+}
+
+/* الجوال */
+
+@media(max-width:900px){
+
+    .main-container{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        width:100%;
+    }
+
+    .footer-content{
+        grid-template-columns:1fr;
+    }
+
+    .header h1{
+        font-size:3.3rem;
+    }
+
+}
+
+</style>
 </head>
+
 <body>
 
-    <header class="main-header">
-        <h1>قوانين</h1>
-        <p>NAZWA ROLEPLAY</p>
-    </header>
+<!-- الهيدر -->
 
-    <div class="container">
-        <!-- الأزرار الجانبية -->
-        <div class="sidebar">
-            <button class="nav-btn active" onclick="showTab('general', this)">⚖️ قوانين عامة</button>
-            <button class="nav-btn" onclick="showTab('police', this)">👮 قوانين الشرطة</button>
-            <button class="nav-btn" onclick="showTab('gangs', this)">⚔️ قوانين العصابات</button>
-            <button class="nav-btn" onclick="showTab('ems', this)">🚑 قوانين الإسعاف</button>
-            <button class="nav-btn" onclick="showTab('court', this)">🏛️ قوانين المحكمة</button>
-            <button class="nav-btn" onclick="showTab('civ', this)">👨‍💼 قوانين المواطنين</button>
-            <button class="nav-btn" onclick="showTab('mech', this)">🛠️ قوانين الميكانيكي</button>
+<div class="header">
+    <h1>قوانين</h1>
+    <p>NAZWA RP</p>
+</div>
+
+<!-- المحتوى -->
+
+<div class="main-container">
+
+    <!-- القوانين -->
+
+    <div class="content-box">
+
+        <h2 id="rule-title">
+            ⚖️ قوانين عامة
+        </h2>
+
+        <div class="rules-list" id="rule-list">
+
+            <div class="rule-item">
+                احترام الجميع وعدم السب أو العنصرية.
+            </div>
+
+            <div class="rule-item">
+                الالتزام بالشخصية داخل الرول بلاي.
+            </div>
+
+            <div class="rule-item">
+                الخوف على الحياة وقت التهديد.
+            </div>
+
+            <div class="rule-item">
+                ممنوع الميتا جيمنج والباور جيمنج.
+            </div>
+
+            <div class="rule-item">
+                ممنوع RDM و VDM.
+            </div>
+
         </div>
 
-        <!-- عرض القوانين -->
-        <div class="content-box" id="display-area">
-            <h2 id="tab-title">⚖️ قوانين عامة</h2>
-            <ul id="tab-list">
-                <li>احترام جميع اللاعبين وعدم التلفظ بكلمات غير لائقة.</li>
-                <li>يمنع منعاً باتاً الخروج عن الشخصية (OOC) داخل اللعبة.</li>
-                <li>يجب الالتزام بقانون الخوف على الحياة في جميع الحالات.</li>
-                <li>يمنع استخدام أي معلومات من خارج اللعبة لتنفيذ مهام داخلها.</li>
-            </ul>
-        </div>
     </div>
 
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>عن مدينة نزوه</h4>
-                <p>نحن نسعى لتقديم أفضل بيئة محاكاة للواقع في عالم جراند العرب. انضم إلينا واستمتع بالواقعية.</p>
-            </div>
-            <div class="footer-col">
-                <h4>روابط التواصل</h4>
-                <a href="#">الديسكورد الرسمي</a><br>
-                <a href="#">حسابنا في إنستقرام</a><br>
-                <a href="#">الدعم الفني</a>
-            </div>
-            <div class="footer-col">
-                <h4>طاقم العمل (المتواجدون)</h4>
-                <!-- تحديث الويدجت ليظهر المتصلين -->
-                <iframe src="https://discord.com/widget?id=1328458763593879644&theme=dark" class="discord-frame" allowtransparency="true" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-            </div>
-        </div>
-        <div class="copy">جميع الحقوق محفوظة لصالح سيرفر نزوه 2026 ©</div>
-    </footer>
+    <!-- القائمة -->
 
-    <script>
-        const rules = {
-            general: {
-                title: "⚖️ قوانين عامة",
-                items: ["احترام الجميع وعدم السب.", "الالتزام بالشخصية (IC).", "الخوف على الحياة.", "منع الميتا جيمنج والباور جيمنج."]
-            },
-            police: {
-                title: "👮 قوانين الشرطة",
-                items: ["الالتزام بالرتب العسكرية.", "منع استخدام القوة المفرطة دون سبب.", "الاحترام التام للمواطنين."]
-            },
-            gangs: {
-                title: "⚔️ قوانين العصابات",
-                items: ["الالتزام باللباس الموحد.", "يمنع الغدر بالرهائن.", "يجب وجود سبب قوي للخطف."]
-            },
-            ems: {
-                title: "🚑 قوانين الإسعاف",
-                items: ["علاج جميع المصابين.", "منع الإنعاش وقت إطلاق النار.", "الالتزام بالزي الرسمي."]
-            },
-            court: {
-                title: "🏛️ قوانين المحكمة",
-                items: ["احترام القاضي.", "تقديم الأدلة والشهود.", "الالتزام بمواعيد الجلسات."]
-            },
-            civ: {
-                title: "👨‍💼 قوانين المواطنين",
-                items: ["احترام قوانين المدينة.", "العمل في الوظائف القانونية.", "عدم حمل السلاح دون رخصة."]
-            },
-            mech: {
-                title: "🛠️ قوانين الميكانيكي",
-                items: ["التصليح داخل الورشة.", "الالتزام بأسعار المدينة.", "فحص المركبات بدقة."]
-            }
-        };
+    <div class="sidebar">
 
-        function showTab(key, btn) {
-            // تحديث المحتوى
-            document.getElementById('tab-title').innerText = rules[key].title;
-            const list = document.getElementById('tab-list');
-            list.innerHTML = "";
-            rules[key].items.forEach(item => {
-                const li = document.createElement('li');
-                li.innerText = item;
-                list.appendChild(li);
-            });
+        <button class="menu-btn active" onclick="changeRules('general',this)">
+            ⚖️ قوانين عامة
+        </button>
 
-            // تحديث شكل الأزرار
-            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-        }
-    </script>
+        <button class="menu-btn" onclick="changeRules('police',this)">
+            👮 قوانين الشرطة
+        </button>
+
+        <button class="menu-btn" onclick="changeRules('gangs',this)">
+            ⚔️ قوانين العصابات
+        </button>
+
+        <button class="menu-btn" onclick="changeRules('ems',this)">
+            🚑 قوانين الإسعاف
+        </button>
+
+        <button class="menu-btn" onclick="changeRules('court',this)">
+            🏛️ قوانين المحكمة
+        </button>
+
+        <button class="menu-btn" onclick="changeRules('citizen',this)">
+            👨‍💼 قوانين المواطنين
+        </button>
+
+        <button class="menu-btn" onclick="changeRules('mechanic',this)">
+            🛠️ قوانين الميكانيكي
+        </button>
+
+    </div>
+
+</div>
+
+<!-- الفوتر -->
+
+<footer>
+
+<div class="footer-content">
+
+    <div class="footer-box">
+
+        <h3>حول السيرفر</h3>
+
+        <p>
+            سيرفر NAZWA RP يقدم تجربة رول بلاي
+            واقعية واحترافية لجميع اللاعبين.
+        </p>
+
+    </div>
+
+    <div class="footer-box">
+
+        <h3>تواصل معنا</h3>
+
+        <a href="https://discord.gg/rGkrgHKK6j" target="_blank">
+            ديسكورد
+        </a>
+
+        <br>
+
+        <a href="https://www.instagram.com/nazwa_rp_1" target="_blank">
+            إنستغرام
+        </a>
+
+        <br>
+
+        <a href="mailto:nazwa11rp@gmail.com">
+            البريد الإلكتروني
+        </a>
+
+    </div>
+
+    <div class="footer-box">
+
+        <h3>المتواجدين حالياً</h3>
+
+        <p>
+            اضغط تدخل سيرفر الديسكورد
+            وتشوف كل المتواجدين.
+        </p>
+
+        <a class="discord-btn"
+        href="https://discord.gg/rGkrgHKK6j"
+        target="_blank">
+
+            دخول الديسكورد
+
+        </a>
+
+    </div>
+
+</div>
+
+<div class="copyright">
+    جميع الحقوق محفوظة © 2026 NAZWA RP
+</div>
+
+</footer>
+
+<script>
+
+const rules = {
+
+general:{
+title:"⚖️ قوانين عامة",
+items:[
+"احترام الجميع وعدم السب أو العنصرية.",
+"الالتزام بالشخصية داخل الرول بلاي.",
+"الخوف على الحياة وقت التهديد.",
+"ممنوع الميتا جيمنج والباور جيمنج.",
+"ممنوع RDM و VDM."
+]
+},
+
+police:{
+title:"👮 قوانين الشرطة",
+items:[
+"الالتزام بالأوامر العسكرية.",
+"احترام المواطنين.",
+"عدم استخدام القوة بدون سبب.",
+"الحفاظ على هيبة الشرطة."
+]
+},
+
+gangs:{
+title:"⚔️ قوانين العصابات",
+items:[
+"ممنوع الغدر.",
+"وجود سبب للخطف أو القتل.",
+"احترام التحالفات.",
+"الالتزام بالرول بلاي."
+]
+},
+
+ems:{
+title:"🚑 قوانين الإسعاف",
+items:[
+"إنقاذ الجميع بدون استثناء.",
+"عدم الإنعاش أثناء إطلاق النار.",
+"الالتزام بالواقعية الطبية."
+]
+},
+
+court:{
+title:"🏛️ قوانين المحكمة",
+items:[
+"احترام القاضي.",
+"تقديم الأدلة بشكل قانوني.",
+"الحق بمحامي دفاع."
+]
+},
+
+citizen:{
+title:"👨‍💼 قوانين المواطنين",
+items:[
+"احترام قوانين المدينة.",
+"عدم إثارة الفوضى.",
+"ممنوع التخريب العشوائي."
+]
+},
+
+mechanic:{
+title:"🛠️ قوانين الميكانيكي",
+items:[
+"التصليح داخل الورشة.",
+"الالتزام بالأسعار.",
+"احترام الزبائن."
+]
+}
+
+};
+
+function changeRules(type,button){
+
+document.getElementById("rule-title").innerText =
+rules[type].title;
+
+const list =
+document.getElementById("rule-list");
+
+list.innerHTML = "";
+
+rules[type].items.forEach(rule=>{
+
+list.innerHTML += `
+<div class="rule-item">
+${rule}
+</div>
+`;
+
+});
+
+document.querySelectorAll(".menu-btn")
+.forEach(btn=>btn.classList.remove("active"));
+
+button.classList.add("active");
+
+}
+
+</script>
+
 </body>
 </html>
