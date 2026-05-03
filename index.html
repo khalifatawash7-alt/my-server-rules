@@ -30,9 +30,15 @@
         .header-section { text-align: center; padding: 70px 20px 40px 20px; }
         .header-section img { width: 140px; border-radius: 50%; border: 4px solid var(--main-green); box-shadow: 0 0 25px rgba(46, 204, 113, 0.4); margin-bottom: 15px; }
         
-        /* تغيير كلمة نزوه إلى قوانين بخط عريض */
-        .header-section h2 { margin: 0; font-size: 3.5em; font-weight: 900; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); letter-spacing: 2px; }
-        .header-section h3 { margin: 5px 0 0 0; font-size: 1.4em; color: var(--main-green); letter-spacing: 5px; font-weight: bold; }
+        /* الكلمة أصبحت "قوانين" وبخط عريض جداً */
+        .header-section h2 { 
+            margin: 0; 
+            font-size: 4em; 
+            font-weight: 900; 
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.8); 
+            color: #ffffff;
+        }
+        .header-section h3 { margin: 5px 0 0 0; font-size: 1.6em; color: var(--main-green); letter-spacing: 8px; font-weight: bold; }
 
         .rules-container { width: 92%; max-width: 850px; padding-bottom: 60px; }
 
@@ -43,26 +49,26 @@
             margin-bottom: 18px; 
             border-radius: 15px; 
             border: 1px solid rgba(46, 204, 113, 0.2);
-            transition: all 0.3s ease;
+            transition: 0.3s;
         }
 
-        details[open] { border: 1px solid var(--main-green); background-color: rgba(22, 22, 30, 0.5); }
+        details[open] { border: 1px solid var(--main-green); background-color: rgba(22, 22, 30, 0.6); }
 
-        summary { padding: 25px; cursor: pointer; font-weight: bold; font-size: 1.25em; list-style: none; display: flex; justify-content: space-between; align-items: center; }
-        summary::after { content: '📖'; font-size: 1.2em; opacity: 0.7; }
+        summary { padding: 25px; cursor: pointer; font-weight: bold; font-size: 1.3em; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+        summary::after { content: '📖'; font-size: 1.2em; }
 
-        .content { padding: 0 25px 25px 25px; line-height: 2; color: #f0f0f0; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 1.1em; }
+        .content { padding: 0 25px 25px 25px; line-height: 2; color: #f0f0f0; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 1.15em; }
 
         footer {
             width: 100%;
-            background-color: rgba(15, 15, 20, 0.95);
+            background-color: rgba(10, 10, 12, 0.98);
             padding: 60px 0 30px 0;
             margin-top: auto;
-            border-top: 3px solid var(--main-green);
+            border-top: 4px solid var(--main-green);
         }
 
         .footer-content {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -70,14 +76,14 @@
             padding: 0 40px;
         }
 
-        .footer-section { margin-bottom: 40px; min-width: 250px; flex: 1; }
-        .footer-section h4 { color: var(--main-green); margin-bottom: 20px; font-size: 1.4em; border-right: 4px solid var(--main-green); padding-right: 15px; }
-        .footer-section a { color: #ccc; text-decoration: none; display: block; margin-bottom: 12px; font-size: 1em; transition: 0.3s; }
-        .footer-section a:hover { color: var(--main-green); padding-right: 5px; }
+        .footer-section { margin-bottom: 40px; min-width: 280px; flex: 1; }
+        .footer-section h4 { color: var(--main-green); margin-bottom: 25px; font-size: 1.5em; border-right: 5px solid var(--main-green); padding-right: 15px; }
+        .footer-section a { color: #eee; text-decoration: none; display: block; margin-bottom: 15px; font-size: 1.1em; transition: 0.3s; }
+        .footer-section a:hover { color: var(--main-green); padding-right: 8px; }
 
-        .discord-widget { width: 100%; height: 300px; border-radius: 10px; margin-top: 10px; border: none; }
+        .discord-widget { width: 100%; height: 350px; border-radius: 12px; border: none; background: transparent; }
 
-        .copyright { text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; margin-top: 20px; font-size: 0.85em; color: #666; width: 100%; }
+        .copyright { text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; margin-top: 20px; font-size: 0.9em; color: #555; width: 100%; }
     </style>
 </head>
 <body>
@@ -85,7 +91,7 @@
     <div class="hero-bg"></div>
 
     <div class="header-section">
-        <img src="https://cdn.discordapp.com/attachments/1463594306525724704/1500428814478610512/IMG_5109.png?ex=69f866b9&is=69f71539&hm=7e21bda0a3f767d54507020675fddce0af1195647386f898edf141522ab296b1&" alt="Logo">
+        <img src="https://cdn.discordapp.com/attachments/1463594306525724704/1500428814478610512/IMG_5109.png?ex=69f866b9&is=69f71539&hm=7e21bda0a3f767d54507020675fddce0af1195647386f898edf141522ab296b1&" alt="NAZWA Logo">
         <h2>قوانين</h2>
         <h3>NAZWA</h3>
     </div>
@@ -96,60 +102,65 @@
             <summary>⚖️ قوانين عامة</summary>
             <div class="content">
                 • احترام الجميع وعدم السب أو العنصرية.<br>
-                • الالتزام بالشخصية داخل الرول بلاي.<br>
-                • الخوف على الحياة (Fear RP).<br>
-                • ممنوع استغلال معلومات خارج اللعبة (Meta Gaming).
+                • الالتزام بالشخصية داخل الرول بلاي (IC).<br>
+                • الخوف على الحياة (Fear RP) وقت الخطر.<br>
+                • ممنوع استغلال معلومات خارج اللعبة (Meta Gaming).<br>
+                • ممنوع القتل العشوائي (RDM) أو صدم السيارات العشوائي (VDM).
             </div>
         </details>
         
         <details>
             <summary>👮 قوانين الشرطة</summary>
             <div class="content">
-                • احترام المواطنين والتعامل الرسمي.<br>
-                • استخدام السلاح يكون عند الضرورة فقط.<br>
-                • الالتزام بالرتب والأوامر العسكرية.
+                • التعامل الرسمي والمحترم مع المواطنين.<br>
+                • استخدام القوة المتدرجة (تحذير، تيزر، سلاح).<br>
+                • الالتزام التام بالرتب العسكرية والأوامر.<br>
+                • منع استخدام الأسلحة الثقيلة إلا في حالات الاقتحام الكبرى.
             </div>
         </details>
 
         <details>
             <summary>⚔️ قوانين العصابات</summary>
             <div class="content">
-                • لازم سبب قوي للهجوم.<br>
-                • ممنوع قتل الرهائن بدون سبب رول بلاي.<br>
-                • الالتزام بالواقعية في العمليات الإجرامية.
+                • وجود سبب قوي قبل أي عملية خطف أو قتل.<br>
+                • ممنوع الغدر بالرهينة بعد استلام المطلب.<br>
+                • الالتزام بزي العصابة الموحد في العمليات.<br>
+                • احترام مناطق النفوذ الخاصة بالعصابات الأخرى.
             </div>
         </details>
 
         <details>
             <summary>🚑 قوانين الإسعاف</summary>
             <div class="content">
-                • علاج المصابين في أسرع وقت.<br>
-                • ممنوع التدخل في السيناريوهات القائمة حتى تنتهي.<br>
-                • احترام الطاقم الطبي.
+                • الأولوية دائماً لإنقاذ الأرواح.<br>
+                • يمنع الإنعاش وسط تبادل إطلاق النار.<br>
+                • الالتزام بالواقعية الطبية عند الفحص والعلاج.
             </div>
         </details>
 
         <details>
-            <summary>🏛️ قوانين المحكمة</summary>
+            <summary>🏛️ قوانين المحكمة والعدل</summary>
             <div class="content">
-                • احترام القاضي وهيئة المحكمة.<br>
-                • تقديم الأدلة والشهود بشكل واقعي.
+                • احترام القاضي وسير الجلسة القانونية.<br>
+                • يحق لكل مواطن المطالبة بمحامٍ عند الاعتقال.<br>
+                • الأدلة (صور/فيديو) هي أساس الحكم.
             </div>
         </details>
 
         <details>
             <summary>👨‍💼 قوانين المواطنين</summary>
             <div class="content">
-                • الالتزام بالنظام العام للمدينة.<br>
-                • عدم إثارة الفوضى بدون سبب سيناريو واضح.
+                • السعي وراء كسب الرزق بطرق واقعية.<br>
+                • احترام الجهات الأمنية والطبية.<br>
+                • يمنع التجمهر في المناطق المحظورة دون إذن.
             </div>
         </details>
 
         <details>
             <summary>🛠️ قوانين الميكانيكي</summary>
             <div class="content">
-                • تصليح المركبات في الورشة المخصصة.<br>
-                • الالتزام بالأسعار المحددة.
+                • تصليح المركبات يتم داخل الورشة فقط.<br>
+                • الالتزام بلائحة الأسعار الموحدة للسيرفر.
             </div>
         </details>
 
@@ -157,6 +168,7 @@
 
     <footer>
         <div class="footer-content">
+            <!-- طاقم العمل في الأسفل -->
             <div class="footer-section">
                 <h4>طاقم العمل (المتواجدون)</h4>
                 <iframe src="https://discord.com/widget?id=1328458763593879644&theme=dark" class="discord-widget" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
@@ -164,18 +176,18 @@
 
             <div class="footer-section">
                 <h4>تواصل معنا</h4>
-                <a href="https://discord.gg/rGkrgHKK6j" target="_blank">الديسكورد</a>
-                <a href="https://www.instagram.com/nazwa_rp_1" target="_blank">إنستغرام</a>
-                <a href="mailto:nazwa11rp@gmail.com">الإيميل: nazwa11rp@gmail.com</a>
+                <a href="https://discord.gg/rGkrgHKK6j" target="_blank">سيرفر الديسكورد</a>
+                <a href="https://www.instagram.com/nazwa_rp_1" target="_blank">حساب الإنستغرام</a>
+                <a href="mailto:nazwa11rp@gmail.com">البريد: nazwa11rp@gmail.com</a>
             </div>
 
             <div class="footer-section">
-                <h4>حول السيرفر</h4>
-                <p style="color: #aaa; font-size: 0.95em; line-height: 1.6;">سيرفر نزوه - NAZWA RP<br>تجربة رول بلاي واقعية وفريدة.</p>
+                <h4>حول NAZWA RP</h4>
+                <p style="color: #999; font-size: 1.1em; line-height: 1.8;">سيرفر نزوه يقدم أفضل تجربة رول بلاي واقعية. قوانيننا وُضعت لضمان المتعة والعدل للجميع.</p>
             </div>
         </div>
         <div class="copyright">
-            حقوق الطبع والنشر © NAZWA RP 2026.
+            حقوق الطبع والنشر © NAZWA RP 2026. جميع الحقوق محفوظة.
         </div>
     </footer>
 
