@@ -8,251 +8,182 @@
         :root {
             --main-green: #2ecc71;
             --dark-bg: #0a0a0c;
-            /* جعل الخلفية شفافة جداً */
-            --card-transparent: rgba(22, 22, 30, 0.4); 
+            --book-bg: rgba(255, 255, 255, 0.95);
         }
 
         body { 
             background-color: var(--dark-bg); 
             color: white; 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            margin: 0;
-            padding: 0;
-            display: flex; 
-            flex-direction: column; 
-            align-items: center;
+            margin: 0; padding: 0;
+            overflow-x: hidden;
         }
 
-        /* غلاف عريض خلفية الموقع */
         .hero-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            background-image: linear-gradient(rgba(10, 10, 12, 0.85), rgba(10, 10, 12, 0.85)), url('https://cdn.discordapp.com/attachments/1463594306525724704/1500428814478610512/IMG_5109.png?ex=69f866b9&is=69f71539&hm=7e21bda0a3f767d54507020675fddce0af1195647386f898edf141522ab296b1&');
-            background-position: center;
-            background-size: cover;
-            background-attachment: fixed;
+            background-image: linear-gradient(rgba(10, 10, 12, 0.8), rgba(10, 10, 12, 0.8)), url('https://cdn.discordapp.com/attachments/1463594306525724704/1500428814478610512/IMG_5109.png?ex=69f866b9&is=69f71539&hm=7e21bda0a3f767d54507020675fddce0af1195647386f898edf141522ab296b1&');
+            background-position: center; background-size: cover;
         }
 
-        /* قسم الهيدر (الشعار والاسم) */
-        .header-section { 
-            text-align: center; 
-            padding: 70px 20px 40px 20px; 
-        }
-        .header-section img { 
-            width: 140px; 
-            border-radius: 50%; 
-            border: 4px solid var(--main-green); 
-            box-shadow: 0 0 25px rgba(46, 204, 113, 0.4); 
-            margin-bottom: 15px;
-        }
-        .header-section h2 { margin: 0; font-size: 2.8em; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-        .header-section h3 { margin: 5px 0 0 0; font-size: 1.4em; color: var(--main-green); letter-spacing: 5px; font-weight: bold; }
-
-        .rules-container { width: 92%; max-width: 850px; padding-bottom: 60px; }
-
-        /* تصميم البطاقات الشفافة */
-        details { 
-            background-color: var(--card-transparent); 
-            backdrop-filter: blur(12px); 
-            -webkit-backdrop-filter: blur(12px);
-            margin-bottom: 18px; 
-            border-radius: 15px; 
-            border: 1px solid rgba(46, 204, 113, 0.2);
-            transition: all 0.3s ease;
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 50px 20px;
+            gap: 40px;
         }
 
-        details[open] { 
-            border: 1px solid var(--main-green); 
-            box-shadow: 0 0 20px rgba(46, 204, 113, 0.1);
-            background-color: rgba(22, 22, 30, 0.5);
+        /* قائمة الأزرار على اليسار */
+        .side-menu {
+            flex: 1;
+            max-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
-        summary { 
-            padding: 25px; 
-            cursor: pointer; 
-            font-weight: bold; 
-            font-size: 1.25em; 
-            list-style: none; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            outline: none;
-        }
-
-        summary::after { content: '📖'; font-size: 1.2em; opacity: 0.7; transition: 0.3s; }
-        details[open] summary::after { content: '📗'; opacity: 1; transform: scale(1.1); }
-
-        .content { 
-            padding: 0 25px 25px 25px; 
-            line-height: 2; 
-            color: #f0f0f0; 
-            border-top: 1px solid rgba(255,255,255,0.1); 
-            padding-top: 20px; 
-            font-size: 1.1em;
-        }
-
-        /* الفوتر (Footer) */
-        footer {
-            width: 100%;
-            background-color: rgba(15, 15, 20, 0.95);
-            padding: 60px 0 30px 0;
-            margin-top: auto;
-            border-top: 3px solid var(--main-green);
-        }
-
-        .footer-content {
-            max-width: 1100px;
-            margin: 0 auto;
+        .menu-btn {
+            background: rgba(46, 204, 113, 0.1);
+            border: 1px solid var(--main-green);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            text-align: right;
+            font-weight: bold;
+            transition: 0.3s;
             display: flex;
             justify-content: space-between;
-            flex-wrap: wrap;
-            padding: 0 40px;
         }
 
-        .footer-section { margin-bottom: 40px; min-width: 250px; flex: 1; }
-        .footer-section h4 { color: var(--main-green); margin-bottom: 20px; font-size: 1.4em; border-right: 4px solid var(--main-green); padding-right: 15px; }
-        .footer-section a { color: #ccc; text-decoration: none; display: block; margin-bottom: 12px; font-size: 1em; transition: 0.3s; }
-        .footer-section a:hover { color: var(--main-green); padding-right: 5px; }
+        .menu-btn:hover, .menu-btn.active {
+            background: var(--main-green);
+            color: black;
+            transform: translateX(-10px);
+        }
 
-        .copyright {
-            text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding-top: 30px;
-            margin-top: 20px;
-            font-size: 0.85em;
-            color: #666;
+        /* تصميم الكتاب على اليمين */
+        .book-container {
+            flex: 2;
+            min-width: 350px;
+            max-width: 700px;
+            min-height: 600px;
+            background: var(--book-bg);
+            border-radius: 5px 30px 30px 5px;
+            box-shadow: 20px 20px 60px rgba(0,0,0,0.5), inset 10px 0 20px rgba(0,0,0,0.1);
+            color: #2c3e50;
+            padding: 40px;
+            position: relative;
+            transform: perspective(1500px) rotateY(-5deg);
+            border-left: 15px solid #27ae60;
+        }
+
+        .book-content h2 {
+            border-bottom: 2px solid var(--main-green);
+            padding-bottom: 10px;
+            color: #1b1b1b;
+        }
+
+        .book-content p {
+            line-height: 2;
+            font-size: 1.15em;
+            white-space: pre-line;
+        }
+
+        .header-main { text-align: center; padding-top: 40px; }
+        .header-main img { width: 120px; border-radius: 50%; border: 3px solid var(--main-green); }
+
+        footer {
             width: 100%;
+            background: rgba(15, 15, 20, 0.95);
+            padding: 40px 0;
+            margin-top: 50px;
+            border-top: 3px solid var(--main-green);
+            text-align: center;
         }
+
+        .footer-links a { color: var(--main-green); text-decoration: none; margin: 0 15px; }
     </style>
 </head>
 <body>
 
     <div class="hero-bg"></div>
 
-    <div class="header-section">
-        <img src="https://cdn.discordapp.com/attachments/1463594306525724704/1500428814478610512/IMG_5109.png?ex=69f866b9&is=69f71539&hm=7e21bda0a3f767d54507020675fddce0af1195647386f898edf141522ab296b1&" alt="NAZWA Logo">
-        <h2>نزوه</h2>
-        <h3>NAZWA</h3>
+    <div class="header-main">
+        <img src="https://cdn.discordapp.com/attachments/1463594306525724704/1500428814478610512/IMG_5109.png?ex=69f866b9&is=69f71539&hm=7e21bda0a3f767d54507020675fddce0af1195647386f898edf141522ab296b1&">
+        <h1 style="margin: 10px 0 0 0;">نزوه - NAZWA</h1>
     </div>
 
-    <div class="rules-container">
-        
-        <details>
-            <summary>⚖️ قوانين عامة (الكل)</summary>
-            <div class="content">
-                • احترام الجميع وعدم السب أو العنصرية.<br>
-                • الالتزام بالشخصية داخل الرول بلاي.<br>
-                • الخوف على الحياة (Fear RP) وقت التهديد أو الخطر.<br>
-                • ممنوع استخدام معلومات خارج اللعبة داخل اللعبة (Meta Gaming).<br>
-                • ممنوع التصرف بشكل غير واقعي أو خارق (Power Gaming).<br>
-                • ممنوع القتل أو السرقة بدون سبب RP واضح.<br>
-                • ممنوع الخروج من السيرفر وقت السيناريو.<br>
-                • احترام القوانين والإدارة واللاعبين.<br>
-                • الهدف هو المتعة والواقعية مو الفوز.<br>
-                • ممنوع استغلال البقزات أو الغش.
-            </div>
-        </details>
-        
-        <details>
-            <summary>👮 قوانين الشرطة</summary>
-            <div class="content">
-                • احترام المواطنين والتعامل الرسمي.<br>
-                • استخدام السلاح يكون عند الضرورة فقط.<br>
-                • إعطاء تحذير قبل إطلاق النار.<br>
-                • الالتزام بالأوامر والرتب العسكرية.<br>
-                • الحفاظ على أمن المدينة والنظام العام.<br>
-                • يمنع منعاً باتاً استخدام السلاح بشكل عشوائي.<br>
-                • إذا معك سلاح أبيض يتم التعامل بحذر وتحذير أولاً.<br>
-                • إذا معك سلاح ناري يتم التعامل فوراً حسب التهديد.<br>
-                • إذا تم توجيه السلاح عليك يُسمح باستخدام الصلاحيات حسب الحالة.<br>
-                • إطلاق النار على العجلات لإيقاف المركبة.<br>
-                • النطح + تقييد المشتبه (كلبشة).<br>
-                • استخدام التيزر ضد الشخص أو السيارة عند الحاجة.
-            </div>
-        </details>
+    <div class="container">
+        <!-- القائمة اليسرى -->
+        <div class="side-menu">
+            <div class="menu-btn active" onclick="showRule('general', this)">⚖️ قوانين عامة <span>◀</span></div>
+            <div class="menu-btn" onclick="showRule('police', this)">👮 قوانين الشرطة <span>◀</span></div>
+            <div class="menu-btn" onclick="showRule('gangs', this)">⚔️ قوانين العصابات <span>◀</span></div>
+            <div class="menu-btn" onclick="showRule('staff', this)">👥 طاقم العمل <span>◀</span></div>
+        </div>
 
-        <details>
-            <summary>⚔️ قوانين العصابات</summary>
-            <div class="content">
-                • لازم سبب قوي لأي هجوم أو خطف.<br>
-                • ممنوع قتل الرهائن بدون سبب RP.<br>
-                • احترام التحالفات والعداوات.<br>
-                • الالتزام بالواقعية في العمليات.<br>
-                • ممنوع الهجوم العشوائي.<br>
-                • الالتزام بعدد أفراد حسب قوانين السيرفر.
+        <!-- الكتاب الأيمن -->
+        <div class="book-container">
+            <div id="rule-display" class="book-content">
+                <h2 id="rule-title">قوانين عامة</h2>
+                <p id="rule-text">
+                    • احترام الجميع وعدم السب أو العنصرية.
+                    • الالتزام بالشخصية داخل الرول بلاي.
+                    • الخوف على الحياة (Fear RP) وقت التهديد أو الخطر.
+                    • ممنوع استخدام معلومات خارج اللعبة (Meta Gaming).
+                    • ممنوع التصرف بشكل غير واقعي (Power Gaming).
+                </p>
             </div>
-        </details>
-
-        <details>
-            <summary>🚑 قوانين الإسعاف / الصحة</summary>
-            <div class="content">
-                • علاج الجميع بدون تمييز.<br>
-                • الالتزام بالواقعية الطبية.<br>
-                • الاستجابة السريعة للبلاغات.<br>
-                • احترام خصوصية المصابين.
-            </div>
-        </details>
-
-        <details>
-            <summary>🏛️ قوانين العدل / المحكمة</summary>
-            <div class="content">
-                • احترام القاضي والجلسة.<br>
-                • الكلام فقط بإذن.<br>
-                • وجود أدلة قبل الحكم.<br>
-                • المحامي له حق الدفاع الكامل.<br>
-                • ممنوع التهديد داخل المحكمة.
-            </div>
-        </details>
-
-        <details>
-            <summary>👨‍💼 قوانين المواطنين</summary>
-            <div class="content">
-                • الالتزام بالقوانين العامة.<br>
-                • احترام الجهات الحكومية.<br>
-                • التصرف بواقعية داخل الرول بلاي.<br>
-                • ممنوع الفوضى أو التخريب بدون سبب RP.<br>
-                • المشاركة في التجمعات غير المرخصة ممنوعة.<br>
-                • الإساءة لرجال الأمن أو تعطيلهم تعتبر جريمة.<br>
-                • أي سلوك يسبب فوضى أو تهديد للمجتمع عليه عقوبات.
-            </div>
-        </details>
-
-        <details>
-            <summary>🛠️ قوانين الميكانيكي</summary>
-            <div class="content">
-                • تصليح السيارات بشكل واقعي.<br>
-                • احترام الزبائن.<br>
-                • الالتزام بأسعار السيرفر.
-            </div>
-        </details>
-
+        </div>
     </div>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>روابط سريعة</h4>
-                <a href="#">الصفحة الرئيسية</a>
-                <a href="#">قائمة القوانين</a>
-                <a href="#">متجر نزوه</a>
-                <a href="#">تقديم طاقم العمل</a>
-            </div>
-            <div class="footer-section">
-                <h4>تواصل معنا</h4>
-                <a href="https://discord.gg/rGkrgHKK6j" target="_blank">انضم إلى الديسكورد</a>
-                <a href="https://www.instagram.com/nazwa_rp_1?igsh=b2ZrZXpyODZmeDZ1&utm_source=qr" target="_blank">تابعنا على إنستغرام</a>
-                <a href="mailto:nazwa11rp@gmail.com">البريد: nazwa11rp@gmail.com</a>
-            </div>
-            <div class="footer-section">
-                <h4>حول NAZWA RP</h4>
-                <p style="color: #aaa; font-size: 0.95em; line-height: 1.6;">سيرفر نزوه يقدم لكم تجربة رول بلاي فريدة من نوعها، نركز على الواقعية والمتعة لجميع اللاعبين.</p>
-            </div>
+        <div class="footer-links">
+            <a href="https://discord.gg/rGkrgHKK6j">ديسكورد</a> | 
+            <a href="https://www.instagram.com/nazwa_rp_1">إنستغرام</a> | 
+            <a href="mailto:nazwa11rp@gmail.com">الإيميل</a>
         </div>
-        <div class="copyright">
-            جميع الحقوق محفوظة لصالح سيرفر نزوه - NAZWA RP © 2026.
-        </div>
+        <p style="color: #666; margin-top: 15px;">حقوق الطبع والنشر © NAZWA RP 2026</p>
     </footer>
+
+    <script>
+        const rules = {
+            general: {
+                title: "⚖️ قوانين عامة",
+                text: "• احترام الجميع وعدم السب أو العنصرية.\n• الالتزام بالشخصية داخل الرول بلاي.\n• الخوف على الحياة (Fear RP) وقت التهديد أو الخطر.\n• ممنوع استخدام معلومات خارج اللعبة داخل اللعبة (Meta Gaming).\n• ممنوع التصرف بشكل غير واقعي أو خارق (Power Gaming).\n• ممنوع القتل أو السرقة بدون سبب RP واضح.\n• ممنوع الخروج من السيرفر وقت السيناريو.\n• الهدف هو المتعة والواقعية مو الفوز."
+            },
+            police: {
+                title: "👮 قوانين الشرطة",
+                text: "• احترام المواطنين والتعامل الرسمي.\n• استخدام السلاح يكون عند الضرورة فقط.\n• إعطاء تحذير قبل إطلاق النار.\n• الالتزام بالأوامر والرتب العسكرية.\n• الحفاظ على أمن المدينة والنظام العام.\n• إطلاق النار على العجلات لإيقاف المركبة.\n• استخدام التيزر عند الحاجة."
+            },
+            gangs: {
+                title: "⚔️ قوانين العصابات",
+                text: "• لازم سبب قوي لأي هجوم أو خطف.\n• ممنوع قتل الرهائن بدون سبب RP.\n• احترام التحالفات والعداوات.\n• الالتزام بالواقعية في العمليات.\n• الالتزام بعدد أفراد حسب قوانين السيرفر."
+            },
+            staff: {
+                title: "👥 طاقم العمل",
+                text: "يمكنك التواصل مع طاقم العمل المتواجد حالياً عبر الديسكورد.\n\nنحن هنا لخدمتكم وضمان تجربة ممتعة للجميع."
+            }
+        };
+
+        function showRule(key, btn) {
+            // تحديث محتوى الكتاب
+            document.getElementById('rule-title').innerText = rules[key].title;
+            document.getElementById('rule-text').innerText = rules[key].text;
+
+            // تحديث الزر النشط
+            document.querySelectorAll('.menu-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // تأثير بسيط لفتح الصفحة
+            const content = document.getElementById('rule-display');
+            content.style.opacity = 0;
+            setTimeout(() => { content.style.opacity = 1; }, 100);
+        }
+    </script>
 
 </body>
 </html>
