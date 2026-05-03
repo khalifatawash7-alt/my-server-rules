@@ -2,18 +2,125 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>قوانين السيرفر</title>
     <style>
-        body { background-color: #1a1a2e; color: white; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; padding: 50px; }
-        .rule-card { background-color: #16213e; width: 80%; max-width: 600px; padding: 15px; margin: 10px; border-radius: 8px; border-right: 5px solid #e94560; }
-        h1 { color: #e94560; }
+        body { 
+            background-color: #0a0a0a; 
+            color: white; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            padding: 20px; 
+            background-image: linear-gradient(rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.9)), url('https://cdn.discordapp.com/attachments/1463594306525724704/1500428814478610512/IMG_5109.png?ex=69f866b9&is=69f71539&hm=7e21bda0a3f767d54507020675fddce0af1195647386f898edf141522ab296b1&');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .top-logo { width: 180px; height: 180px; margin-bottom: 10px; border-radius: 50%; object-fit: cover; border: 3px solid #2ecc71; box-shadow: 0 0 15px #2ecc71; }
+        h1 { color: #2ecc71; margin-bottom: 30px; text-shadow: 2px 2px #000; font-size: 2em; }
+        .rules-container { width: 100%; max-width: 600px; }
+        details { 
+            background-color: rgba(17, 17, 17, 0.95); 
+            margin-bottom: 15px; 
+            border-radius: 12px; 
+            border-right: 6px solid #2ecc71; 
+            overflow: hidden; 
+            transition: 0.3s; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        summary { 
+            padding: 18px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            font-size: 1.2em; 
+            list-style: none; 
+            outline: none; 
+            color: #2ecc71; 
+            display: flex;
+            align-items: center;
+        }
+        summary:hover { background-color: #1a1a1a; }
+        .content { 
+            padding: 20px; 
+            background-color: rgba(10, 10, 10, 0.8); 
+            border-top: 1px solid #222; 
+            line-height: 1.8; 
+            color: #e0e0e0; 
+            font-size: 1.05em;
+        }
     </style>
 </head>
 <body>
-    <h1>📜 قوانين السيرفر</h1>
-    <div class="rule-card">قوانين الحياة الجديدة - NLR</div>
-    <div class="rule-card">الباور جيمنج - PowerGaming</div>
-    <div class="rule-card">الخوف على الحياة - NVL</div>
-    <div class="rule-card">القتل العشوائي - RDM</div>
+    <img src="https://cdn.discordapp.com/attachments/1463594306525724704/1500428814478610512/IMG_5109.png?ex=69f866b9&is=69f71539&hm=7e21bda0a3f767d54507020675fddce0af1195647386f898edf141522ab296b1&" class="top-logo" alt="Server Logo">
+    
+    <h1>📜 قوانين السيرفر الرسمية</h1>
+    
+    <div class="rules-container">
+        <details>
+            <summary>⚖️ القوانين العامة</summary>
+            <div class="content">
+                • الاحترام المتبادل بين جميع اللاعبين.<br>
+                • يمنع السب أو القذف بجميع أنواعه.<br>
+                • يمنع استغلال الثغرات (Bugs) في السيرفر.
+            </div>
+        </details>
+        
+        <details>
+            <summary>🚗 قوانين تقمص الشخصية (RP)</summary>
+            <div class="content">
+                • الالتزام بالخوف على الحياة (NVL).<br>
+                • يمنع الخروج من السيناريو (Fail RP).<br>
+                • القتل العشوائي (RDM) ممنوع نهائياً.
+            </div>
+        </details>
+
+        <details>
+            <summary>👮 قوانين جهاز الشرطة</summary>
+            <div class="content">
+                • يمنع استخدام القوة المفرطة بدون سبب.<br>
+                • الالتزام بالرتب والزي الرسمي.<br>
+                • يمنع التفتيش بدون إجراءات قانونية.
+            </div>
+        </details>
+
+        <details>
+            <summary>🚑 قوانين وزارة الصحة (EMS)</summary>
+            <div class="content">
+                • الأولوية دائماً لإنقاذ الأرواح.<br>
+                • يمنع التدخل في النزاعات المسلحة قبل انتهاء السيناريو.<br>
+                • الالتزام بالزي الرسمي وتوزيع المسعفين في المدينة.
+            </div>
+        </details>
+
+        <details>
+            <summary>⚔️ قوانين العصابات</summary>
+            <div class="content">
+                • يمنع الهجوم على مقرات العصابات بدون سيناريو قوي.<br>
+                • الالتزام بلون العصابة الرسمي في السيناريوهات.<br>
+                • يمنع التحالف بين أكثر من عصابتين في هجوم واحد.
+            </div>
+        </details>
+
+        <details>
+            <summary>🏛️ قوانين وزارة العدل</summary>
+            <div class="content">
+                • القاضي هو السلطة العليا في المحكمة.<br>
+                • يحق لكل مواطن المطالبة بمحامٍ أثناء التحقيق.<br>
+                • القرارات القضائية نهائية ويتم تنفيذها فوراً.
+            </div>
+        </details>
+
+        <details>
+            <summary>🚫 المحظورات</summary>
+            <div class="content">
+                • يمنع استخدام برامج الغش (Mod Menus).<br>
+                • يمنع الإعلان لسيرفرات أخرى.<br>
+                • يمنع إزعاج الإدارة في التذاكر.
+            </div>
+        </details>
+    </div>
 </body>
 </html>
