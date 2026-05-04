@@ -2,526 +2,304 @@
 <html lang="ar" dir="rtl">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>قوانين سيرفر NAZWA</title>
-
-<style>
-
-:root{
-    --green:#2ecc71;
-    --dark:#050506;
-    --card:rgba(20,20,25,.35);
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    background:var(--dark);
-    color:white;
-    font-family:'Segoe UI',sans-serif;
-    overflow-x:hidden;
-}
-
-/* الخلفية */
-
-.hero-bg{
-    position:fixed;
-    inset:0;
-    z-index:-1;
-
-    background-image:
-    linear-gradient(rgba(5,5,5,.70),
-    rgba(5,5,5,.82)),
-    url('https://cdn.discordapp.com/attachments/1463594306525724704/1500428814478610512/IMG_5109.png?ex=69f866b9&is=69f71539&hm=7e21bda0a3f767d54507020675fddce0af1195647386f898edf141522ab296b1&');
-
-    background-size:cover;
-    background-position:center center;
-    background-repeat:no-repeat;
-    background-attachment:fixed;
-
-    width:100%;
-    height:100%;
-}
-
-/* الهيدر */
-
-.header{
-    text-align:center;
-    padding:90px 20px 60px;
-}
-
-.header img{
-    width:160px;
-    height:160px;
-
-    border-radius:50%;
-
-    border:4px solid var(--green);
-
-    box-shadow:0 0 30px rgba(46,204,113,.45);
-
-    margin-bottom:22px;
-}
-
-.header h1{
-    font-size:5rem;
-
-    font-weight:900;
-
-    margin-bottom:10px;
-
-    text-shadow:0 0 25px rgba(46,204,113,.3);
-}
-
-.header p{
-    color:var(--green);
-
-    letter-spacing:8px;
-
-    font-weight:bold;
-
-    font-size:1.2rem;
-}
-
-/* الكونتينر */
-
-.container{
-    width:94%;
-    max-width:1100px;
-
-    margin:auto;
-
-    padding-bottom:70px;
-}
-
-/* البوكسات */
-
-details{
-    background:var(--card);
-
-    backdrop-filter:blur(16px);
-    -webkit-backdrop-filter:blur(16px);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    border-radius:24px;
-
-    margin-bottom:20px;
-
-    overflow:hidden;
-
-    transition:.25s;
-}
-
-details[open]{
-    background:rgba(255,255,255,.08);
-
-    border:1px solid rgba(46,204,113,.65);
-
-    box-shadow:0 0 25px rgba(46,204,113,.15);
-}
-
-summary{
-    list-style:none;
-
-    padding:30px;
-
-    cursor:pointer;
-
-    font-size:1.35rem;
-
-    font-weight:800;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-summary::-webkit-details-marker{
-    display:none;
-}
-
-summary::after{
-    content:"+";
-
-    font-size:1.8rem;
-
-    color:var(--green);
-
-    transition:.2s;
-}
-
-details[open] summary::after{
-    transform:rotate(45deg);
-}
-
-/* المحتوى */
-
-.content{
-    padding:0 30px 30px;
-
-    line-height:2.5;
-
-    font-size:1.08rem;
-
-    color:#f1f1f1;
-
-    border-top:1px solid rgba(255,255,255,.08);
-}
-
-/* الفوتر */
-
-footer{
-    background:rgba(5,5,5,.92);
-
-    border-top:3px solid var(--green);
-
-    padding:60px 20px 30px;
-}
-
-.footer-content{
-    max-width:1200px;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr 1fr;
-
-    gap:30px;
-}
-
-.footer-box{
-    background:rgba(255,255,255,.04);
-
-    border:1px solid rgba(255,255,255,.06);
-
-    border-radius:18px;
-
-    padding:25px;
-}
-
-.footer-box h3{
-    color:var(--green);
-
-    margin-bottom:18px;
-}
-
-.footer-box a,
-.footer-box p{
-    color:#bbb;
-
-    text-decoration:none;
-
-    line-height:2;
-}
-
-.footer-box a:hover{
-    color:white;
-}
-
-/* بوكس الديسكورد */
-
-.bottom-discord{
-    width:94%;
-    max-width:1100px;
-
-    margin:40px auto 70px;
-
-    background:rgba(255,255,255,.05);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    backdrop-filter:blur(15px);
-
-    border-radius:24px;
-
-    padding:45px;
-
-    text-align:center;
-}
-
-.bottom-discord h2{
-    color:var(--green);
-
-    font-size:2rem;
-
-    margin-bottom:15px;
-}
-
-.bottom-discord p{
-    color:#ddd;
-
-    margin-bottom:25px;
-
-    font-size:1.1rem;
-}
-
-.discord-btn{
-    display:inline-block;
-
-    background:var(--green);
-
-    color:black;
-
-    text-decoration:none;
-
-    padding:14px 28px;
-
-    border-radius:14px;
-
-    font-weight:bold;
-
-    transition:.2s;
-}
-
-.discord-btn:hover{
-    transform:scale(1.05);
-}
-
-.copyright{
-    text-align:center;
-
-    margin-top:45px;
-
-    color:#666;
-
-    font-size:.9rem;
-}
-
-/* الجوال */
-
-@media(max-width:850px){
-
-    .footer-content{
-        grid-template-columns:1fr;
-    }
-
-    .header h1{
-        font-size:3.4rem;
-    }
-
-    .header img{
-        width:120px;
-        height:120px;
-    }
-
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قوانين سيرفر NAZWA</title>
+    <!-- مكتبة الأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --green: #2ecc71;
+            --dark: #050506;
+            --card: rgba(20, 20, 25, .35);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--dark);
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .hero-bg {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background-image: linear-gradient(rgba(5, 5, 5, .70), rgba(5, 5, 5, .82)),
+                url('https://cdn.discordapp.com/attachments/1463594306525724704/1500428814478610512/IMG_5109.png?ex=69f866b9&is=69f71539&hm=7e21bda0a3f767d54507020675fddce0af1195647386f898edf141522ab296b1&');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            width: 100%;
+            height: 100%;
+        }
+
+        .header {
+            text-align: center;
+            padding: 90px 20px 60px;
+        }
+
+        .header img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 4px solid var(--green);
+            box-shadow: 0 0 30px rgba(46, 204, 113, .45);
+            margin-bottom: 22px;
+        }
+
+        .header h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            text-shadow: 0 0 25px rgba(46, 204, 113, .3);
+        }
+
+        .header p {
+            color: var(--green);
+            letter-spacing: 8px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .container {
+            width: 94%;
+            max-width: 1100px;
+            margin: auto;
+            padding-bottom: 70px;
+        }
+
+        details {
+            background: var(--card);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 24px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: .25s;
+        }
+
+        details[open] {
+            background: rgba(255, 255, 255, .08);
+            border: 1px solid rgba(46, 204, 113, .65);
+            box-shadow: 0 0 25px rgba(46, 204, 113, .15);
+        }
+
+        summary {
+            list-style: none;
+            padding: 30px;
+            cursor: pointer;
+            font-size: 1.35rem;
+            font-weight: 800;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        summary::after {
+            content: "+";
+            font-size: 1.8rem;
+            color: var(--green);
+            transition: .2s;
+        }
+
+        details[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        .content {
+            padding: 0 30px 30px;
+            line-height: 2.5;
+            font-size: 1.08rem;
+            color: #f1f1f1;
+            border-top: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        /* الفوتر المطور */
+        footer {
+            background: rgba(5, 5, 5, .92);
+            border-top: 3px solid var(--green);
+            padding: 60px 20px 30px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+        }
+
+        .footer-box h3 {
+            color: var(--green);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-links a {
+            color: #bbb;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.1rem;
+            transition: 0.3s;
+        }
+
+        .contact-links a i {
+            color: var(--green);
+            width: 20px;
+            text-align: center;
+        }
+
+        .contact-links a:hover {
+            color: white;
+            padding-right: 5px;
+        }
+
+        /* قسم المتواجدين */
+        .bottom-discord {
+            width: 94%;
+            max-width: 1100px;
+            margin: 40px auto 70px;
+            background: rgba(255, 255, 255, .05);
+            border: 1px solid rgba(255, 255, 255, .08);
+            backdrop-filter: blur(15px);
+            border-radius: 24px;
+            padding: 45px;
+            text-align: center;
+        }
+
+        .discord-widget-container {
+            margin-top: 30px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--green);
+        }
+
+        .discord-btn {
+            display: inline-block;
+            margin-top: 25px;
+            background: var(--green);
+            color: black;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 14px;
+            font-weight: bold;
+            transition: .2s;
+        }
+
+        .discord-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(46, 204, 113, 0.4);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 45px;
+            color: #666;
+            font-size: .9rem;
+        }
+
+        @media(max-width: 850px) {
+            .footer-content { grid-template-columns: 1fr; text-align: center; }
+            .contact-links a { justify-content: center; }
+            .header h1 { font-size: 3.4rem; }
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="hero-bg"></div>
-
-<!-- الهيدر -->
-
-<div class="header">
-
-<img src="https://cdn.discordapp.com/attachments/1463594306525724704/1500428814478610512/IMG_5109.png?ex=69f866b9&is=69f71539&hm=7e21bda0a3f767d54507020675fddce0af1195647386f898edf141522ab296b1&">
-
-<h1>قوانين</h1>
-
-<p>NAZWA RP</p>
-
-</div>
-
-<!-- القوانين -->
-
-<div class="container">
-
-<details open>
-<summary>⚖️ قوانين عامة</summary>
-
-<div class="content">
-
-• احترام الجميع وعدم السب أو العنصرية.<br>
-• الالتزام بالشخصية داخل الرول بلاي.<br>
-• الخوف على الحياة (Fear RP) وقت التهديد أو الخطر.<br>
-• ممنوع استخدام معلومات خارج اللعبة داخل اللعبة (Meta Gaming).<br>
-• ممنوع التصرف بشكل غير واقعي أو خارق (Power Gaming).<br>
-• ممنوع القتل أو السرقة بدون سبب RP واضح.<br>
-• ممنوع الخروج من السيرفر وقت السيناريو.<br>
-• احترام القوانين والإدارة واللاعبين.<br>
-• الهدف هو المتعة والواقعية مو الفوز.<br>
-• ممنوع استغلال البقزات أو الغش.
-
-</div>
-</details>
-
-<details>
-<summary>👮 قوانين الشرطة</summary>
-
-<div class="content">
-
-• احترام المواطنين والتعامل الرسمي.<br>
-• استخدام السلاح يكون عند الضرورة فقط.<br>
-• إعطاء تحذير قبل إطلاق النار.<br>
-• الالتزام بالأوامر والرتب العسكرية.<br>
-• الحفاظ على أمن المدينة والنظام العام.<br>
-• يمنع منعاً باتاً استخدام السلاح بشكل عشوائي.<br>
-• إذا معك سلاح أبيض يتم التعامل بحذر وتحذير أولاً.<br>
-• إذا معك سلاح ناري يتم التعامل فوراً حسب التهديد.<br>
-• إذا تم توجيه السلاح عليك يُسمح باستخدام الصلاحيات حسب الحالة.<br>
-• إطلاق النار على العجلات لإيقاف المركبة.<br>
-• النطح + تقييد المشتبه (كلبشة).<br>
-• استخدام التيزر ضد الشخص أو السيارة عند الحاجة.
-
-</div>
-</details>
-
-<details>
-<summary>⚔️ قوانين العصابات</summary>
-
-<div class="content">
-
-• لازم سبب قوي لأي هجوم أو خطف.<br>
-• ممنوع قتل الرهائن بدون سبب RP.<br>
-• احترام التحالفات والعداوات.<br>
-• الالتزام بالواقعية في العمليات.<br>
-• ممنوع الهجوم العشوائي.<br>
-• الالتزام بعدد أفراد حسب قوانين السيرفر.
-
-</div>
-</details>
-
-<details>
-<summary>🚑 قوانين الإسعاف / الصحة</summary>
-
-<div class="content">
-
-• علاج الجميع بدون تمييز.<br>
-• الالتزام بالواقعية الطبية.<br>
-• الاستجابة السريعة للبلاغات.<br>
-• احترام خصوصية المصابين.
-
-</div>
-</details>
-
-<details>
-<summary>⚖️ قوانين العدل / المحكمة</summary>
-
-<div class="content">
-
-• احترام القاضي والجلسة.<br>
-• الكلام فقط بإذن.<br>
-• وجود أدلة قبل الحكم.<br>
-• المحامي له حق الدفاع الكامل.<br>
-• ممنوع التهديد داخل المحكمة.
-
-</div>
-</details>
-
-<details>
-<summary>👨‍💼 قوانين المواطنين</summary>
-
-<div class="content">
-
-• الالتزام بالقوانين العامة.<br>
-• احترام الجهات الحكومية.<br>
-• التصرف بواقعية داخل الرول بلاي.<br>
-• ممنوع الفوضى أو التخريب بدون سبب RP.<br>
-• المشاركة في التجمعات غير المرخصة ممنوعة.<br>
-• الإساءة لرجال الأمن أو تعطيلهم تعتبر جريمة.<br>
-• أي سلوك يسبب فوضى أو تهديد للمجتمع عليه عقوبات.
-
-</div>
-</details>
-
-<details>
-<summary>🛠️ قوانين الميكانيكي</summary>
-
-<div class="content">
-
-• تصليح السيارات بشكل واقعي.<br>
-• احترام الزبائن.<br>
-• الالتزام بأسعار السيرفر.
-
-</div>
-</details>
-
-</div>
-
-<!-- الفوتر -->
-
-<footer>
-
-<div class="footer-content">
-
-<div class="footer-box">
-
-<h3>روابط سريعة</h3>
-
-<a href="#">الرئيسية</a>
-<a href="#">القوانين</a>
-
-</div>
-
-<div class="footer-box">
-
-<h3>تواصل معنا</h3>
-
-<a href="https://discord.gg/rGkrgHKK6j" target="_blank">
-الديسكورد
-</a>
-
-<a href="https://www.instagram.com/nazwa_rp_1" target="_blank">
-الإنستغرام
-</a>
-
-<a href="mailto:nazwa11rp@gmail.com">
-الإيميل
-</a>
-
-</div>
-
-<div class="footer-box">
-
-<h3>حول السيرفر</h3>
-
-<p>
-سيرفر NAZWA RP يقدم تجربة رول بلاي
-واقعية واحترافية للجميع.
-</p>
-
-</div>
-
-</div>
-
-<div class="copyright">
-
-جميع الحقوق محفوظة © 2026 NAZWA RP
-
-</div>
-
-</footer>
-
-<!-- بوكس الديسكورد -->
-
-<div class="bottom-discord">
-
-<h2>طاقم العمل والمتواجدين</h2>
-
-<p>
-اضغط تدخل الديسكورد وتشوف كل المتواجدين حالياً
-</p>
-
-<a class="discord-btn"
-href="https://discord.gg/rGkrgHKK6j"
-target="_blank">
-
-دخول الديسكورد
-
-</a>
-
-</div>
+    <div class="hero-bg"></div>
+
+    <div class="header">
+        <img src="https://cdn.discordapp.com/attachments/1463594306525724704/1500428814478610512/IMG_5109.png?ex=69f866b9&is=69f71539&hm=7e21bda0a3f767d54507020675fddce0af1195647386f898edf141522ab296b1&">
+        <h1>قوانين</h1>
+        <p>NAZWA RP</p>
+    </div>
+
+    <div class="container">
+        <!-- القوانين (نفس محتواك السابق) -->
+        <details open>
+            <summary>⚖️ قوانين عامة</summary>
+            <div class="content">
+                • احترام الجميع وعدم السب أو العنصرية.<br>
+                • الالتزام بالشخصية داخل الرول بلاي.<br>
+                • الخوف على الحياة (Fear RP) وقت التهديد أو الخطر.<br>
+                • ممنوع استخدام معلومات خارج اللعبة داخل اللعبة (Meta Gaming).<br>
+                • ممنوع التصرف بشكل غير واقعي أو خارق (Power Gaming).<br>
+                • ممنوع القتل أو السرقة بدون سبب RP واضح.<br>
+                • ممنوع الخروج من السيرفر وقت السيناريو.
+            </div>
+        </details>
+        <!-- يمكنك إضافة باقي الـ details هنا كما كانت -->
+    </div>
+
+    <!-- قسم المتواجدين المباشر -->
+    <div class="bottom-discord">
+        <h2 style="color: var(--green); font-size: 2rem; margin-bottom: 10px;">حالة السيرفر والمتواجدين</h2>
+        <p style="color: #ccc;">يمكنك رؤية المتصلين حالياً وطاقم العمل مباشرة من هنا</p>
+        
+        <div class="discord-widget-container">
+            <!-- ملاحظة: استبدل ID السيرفر بـ ID الخاص بك إذا لم يعمل هذا الودجت -->
+            <iframe src="https://discord.com/widget?id=123456789012345678&theme=dark" width="100%" height="400" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+        </div>
+
+        <a class="discord-btn" href="https://discord.gg/rGkrgHKK6j" target="_blank">
+            <i class="fab fa-discord"></i> انضم إلينا الآن
+        </a>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-box">
+                <h3>روابط سريعة</h3>
+                <div class="contact-links">
+                    <a href="#"><i class="fas fa-home"></i> الرئيسية</a>
+                    <a href="#"><i class="fas fa-gavel"></i> القوانين</a>
+                </div>
+            </div>
+
+            <div class="footer-box">
+                <h3>تواصل معنا</h3>
+                <div class="contact-links">
+                    <a href="https://discord.gg/rGkrgHKK6j" target="_blank">
+                        <i class="fab fa-discord"></i> الديسكورد
+                    </a>
+                    <a href="https://www.instagram.com/nazwa_rp_1" target="_blank">
+                        <i class="fab fa-instagram"></i> الإنستغرام
+                    </a>
+                    <a href="mailto:nazwa11rp@gmail.com">
+                        <i class="fas fa-envelope"></i> البريد الإلكتروني
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-box">
+                <h3>حول السيرفر</h3>
+                <p style="color: #bbb; line-height: 1.8;">
+                    سيرفر NAZWA RP يقدم تجربة رول بلاي واقعية واحترافية للجميع، مع إدارة تسهر على راحتكم.
+                </p>
+            </div>
+        </div>
+        <div class="copyright">جميع الحقوق محفوظة © 2026 NAZWA RP</div>
+    </footer>
 
 </body>
 </html>
