@@ -124,7 +124,40 @@
             border-top: 1px solid rgba(255, 255, 255, .08);
         }
 
-        /* الفوتر */
+        /* قسم المتواجدين */
+        .online-section {
+            width: 94%;
+            max-width: 1100px;
+            margin: 40px auto 70px;
+            background: rgba(255, 255, 255, .05);
+            border: 1px solid rgba(255, 255, 255, .08);
+            backdrop-filter: blur(15px);
+            border-radius: 24px;
+            padding: 45px;
+            text-align: center;
+        }
+
+        .status-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--green);
+            color: black;
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: 14px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: .3s;
+            margin-top: 20px;
+        }
+
+        .status-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(46, 204, 113, 0.3);
+        }
+
+        /* الفوتر وتواصل معنا */
         footer {
             background: rgba(5, 5, 5, .92);
             border-top: 3px solid var(--green);
@@ -141,84 +174,49 @@
 
         .footer-box h3 {
             color: var(--green);
-            margin-bottom: 20px;
-            font-size: 1.4rem;
+            margin-bottom: 22px;
+            font-size: 1.3rem;
         }
 
-        /* تعديل تواصل معنا ليكون فوق بعض مع أيقونات */
-        .contact-links {
+        .social-list {
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
 
-        .contact-links a {
-            color: #bbb;
+        .social-list a {
+            color: #ccc;
             text-decoration: none;
             display: flex;
             align-items: center;
             gap: 12px;
-            font-size: 1.1rem;
-            transition: 0.3s;
+            transition: .3s;
+            font-size: 1.05rem;
         }
 
-        .contact-links a i {
+        .social-list a i {
+            font-size: 1.4rem;
             color: var(--green);
             width: 25px;
-            font-size: 1.3rem;
             text-align: center;
         }
 
-        .contact-links a:hover {
+        .social-list a:hover {
             color: white;
-            transform: translateX(-5px);
-        }
-
-        /* قسم المتواجدين الجديد */
-        .status-section {
-            width: 94%;
-            max-width: 1100px;
-            margin: 40px auto 70px;
-            background: rgba(255, 255, 255, .05);
-            border: 1px solid rgba(255, 255, 255, .08);
-            backdrop-filter: blur(15px);
-            border-radius: 24px;
-            padding: 45px;
-            text-align: center;
-        }
-
-        .status-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: var(--green);
-            color: black;
-            text-decoration: none;
-            padding: 18px 35px;
-            border-radius: 14px;
-            font-weight: bold;
-            font-size: 1.2rem;
-            transition: .3s;
-            margin-top: 20px;
-        }
-
-        .status-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(46, 204, 113, 0.4);
+            padding-right: 10px;
         }
 
         .copyright {
             text-align: center;
-            margin-top: 45px;
+            margin-top: 50px;
             color: #666;
             font-size: .9rem;
         }
 
         @media(max-width:850px){
             .footer-content { grid-template-columns: 1fr; }
-            .header h1 { font-size: 3.4rem; }
+            .header h1 { font-size: 3rem; }
         }
-
     </style>
 </head>
 
@@ -325,4 +323,6 @@
 
     </div>
 
-    <!-- قسم المتواجدين - يفتح صفحة 
+    <!-- قسم المتواجدين -->
+    <div class="online-section">
+        <h2 style="color: var(--green
