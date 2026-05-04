@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>قوانين سيرفر NAZWA</title>
-    <!-- مكتبة الأيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -16,16 +15,15 @@
             --card-text: #ffffff;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background: var(--dark);
             color: white;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         .hero-bg {
@@ -39,157 +37,61 @@
             background-attachment: fixed;
         }
 
-        .header {
-            text-align: center;
-            padding: 60px 20px 30px;
-        }
+        .header { text-align: center; padding: 60px 20px 30px; }
+        .header img { width: 140px; height: 140px; border-radius: 50%; border: 4px solid var(--green); box-shadow: 0 0 20px rgba(46, 204, 113, 0.4); margin-bottom: 15px; }
+        .header h1 { font-size: 3.5rem; font-weight: 900; }
+        .header p { color: var(--green); letter-spacing: 3px; font-weight: bold; }
 
-        .header img {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            border: 4px solid var(--green);
-            box-shadow: 0 0 20px rgba(46, 204, 113, 0.4);
-            margin-bottom: 15px;
-        }
+        .container { width: 90%; max-width: 1000px; margin: auto; flex: 1; padding-bottom: 40px; }
 
-        .header h1 {
-            font-size: 3.5rem;
-            font-weight: 900;
-        }
+        details { background: var(--dark-green); border: 1px solid var(--green); border-radius: 12px; margin-bottom: 12px; transition: 0.3s; overflow: hidden; }
+        summary { padding: 20px; cursor: pointer; font-size: 1.2rem; font-weight: bold; display: flex; justify-content: space-between; align-items: center; list-style: none; color: var(--card-text); }
+        summary::after { content: "\f0fe"; font-family: "Font Awesome 5 Free"; font-weight: 900; color: white; }
+        details[open] summary::after { content: "\f146"; }
+        .content { padding: 20px; line-height: 1.8; background: rgba(0, 0, 0, 0.3); color: #eee; }
 
-        .header p {
-            color: var(--green);
-            letter-spacing: 3px;
-            font-weight: bold;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1000px;
-            margin: auto;
-            padding-bottom: 40px;
-        }
-
-        details {
-            background: var(--dark-green); 
-            border: 1px solid var(--green);
-            border-radius: 12px;
-            margin-bottom: 12px;
-            transition: 0.3s;
-            overflow: hidden;
-        }
-
-        summary {
-            padding: 20px;
-            cursor: pointer;
-            font-size: 1.2rem;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            list-style: none;
-            color: var(--card-text);
-        }
-
-        summary::after {
-            content: "\f0fe";
-            font-family: "Font Awesome 5 Free";
-            font-weight: 900;
-            color: white;
-        }
-
-        details[open] summary {
-            background: rgba(0, 0, 0, 0.2);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        details[open] summary::after {
-            content: "\f146";
-        }
-
-        .content {
-            padding: 20px;
-            line-height: 1.8;
-            background: rgba(0, 0, 0, 0.3);
-            color: #eee;
-        }
-
+        /* الفوتر المصلح */
         footer {
             background: #0a0a0c;
-            border-top: 4px solid var(--green);
-            padding: 50px 20px;
-            margin-top: 40px;
-            position: relative;
-            z-index: 10;
+            border-top: 3px solid var(--green);
+            padding: 40px 20px;
+            margin-top: auto;
+            width: 100%;
         }
 
-        .footer-container {
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 30px;
-            text-align: right;
-            margin-top: 20px;
-        }
-
-        .footer-box h3 {
-            color: var(--green);
-            margin-bottom: 15px;
-        }
-
-        .contact-links {
-            list-style: none;
-        }
-
-        .contact-links li {
-            margin-bottom: 10px;
-        }
-
-        .contact-links a {
-            color: #ccc;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .contact-links a:hover {
-            color: var(--green);
-        }
-
-        .copyright {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #888;
-            font-size: 0.9rem;
-            font-weight: bold;
-        }
+        .footer-container { max-width: 1100px; margin: auto; }
 
         .online-box {
             background: rgba(46, 204, 113, 0.08);
             border: 1px solid var(--green);
-            border-radius: 15px;
+            border-radius: 12px;
             padding: 20px;
             text-align: center;
             margin-bottom: 30px;
         }
 
-        .status-btn {
-            display: inline-block;
-            background: var(--green);
-            color: #000;
-            text-decoration: none;
-            padding: 8px 20px;
-            border-radius: 8px;
-            font-weight: bold;
-            margin-top: 10px;
+        .status-btn { display: inline-block; background: var(--green); color: #000; text-decoration: none; padding: 10px 25px; border-radius: 8px; font-weight: bold; margin-top: 10px; }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            text-align: right;
+        }
+
+        .footer-box h3 { color: var(--green); margin-bottom: 15px; font-size: 1.2rem; }
+        .contact-links { list-style: none; }
+        .contact-links li { margin-bottom: 8px; }
+        .contact-links a { color: #ccc; text-decoration: none; display: flex; align-items: center; gap: 10px; font-size: 0.95rem; }
+        .contact-links a:hover { color: var(--green); }
+
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #777;
+            font-size: 0.9rem;
         }
 
         @media (max-width: 768px) {
@@ -200,7 +102,6 @@
 </head>
 
 <body>
-
     <div class="hero-bg"></div>
 
     <div class="header">
@@ -210,100 +111,59 @@
     </div>
 
     <div class="container">
-        <!-- قوانين عامة -->
+        <!-- القوانين -->
         <details>
             <summary>قوانين عامة</summary>
-            <div class="content">
-                • احترام الجميع وعدم السب أو العنصرية.<br>
-                • الالتزام بالشخصية داخل الرول بلاي.<br>
-                • الخوف على الحياة (Fear RP) وقت التهديد أو الخطر.<br>
-                • ممنوع استخدام معلومات خارج اللعبة (Meta Gaming).<br>
-                • ممنوع القتل أو السرقة بدون سبب RP واضح.
-            </div>
+            <div class="content">• احترام الجميع وعدم السب.<br>• الالتزام بالشخصية داخل الرول بلاي.<br>• الخوف على الحياة (Fear RP).</div>
         </details>
 
-        <!-- قوانين الشرطة المحدثة -->
         <details>
             <summary>قوانين الشرطة</summary>
             <div class="content">
-                • احترام المواطنين والتعامل الرسمي.<br>
-                • استخدام السلاح يكون عند الضرورة القصوى.<br>
-                • الالتزام بالأوامر والرتب العسكرية.<br><br>
                 <strong>6. قوانين الأمن العام والنظام:</strong><br>
                 • المشاركة في تجمعات غير مرخصة ممنوعة.<br>
                 • الإساءة لرجال الأمن أو تعطيلهم جريمة.<br>
-                • أي سلوك يسبب فوضى أو تهديد للمجتمع عليه عقوبات.<br><br>
+                • أي سلوك يسبب فوضى عليه عقوبات.<br><br>
                 <strong>7. قوانين السلاح:</strong><br>
-                • يمنع منعاً باتاً استخدام السلاح في أي حال إلا إذا وجه السلاح عليك.<br>
-                • تنبيه: إذا وجه السلاح عليك تستخدم الصلاحيات المذكورة.<br><br>
+                • يمنع استخدام السلاح إلا إذا وجه السلاح عليك.<br><br>
                 <strong>الصلاحيات:</strong><br>
-                • إطلاق على العجلات.<br>
-                • نطحه وتكلبش.<br>
-                • إطلاق على السيارة بتيزر.
+                • إطلاق على العجلات / نطحه وتكلبش / إطلاق تيزر.
             </div>
         </details>
 
-        <!-- قوانين العصابات -->
         <details>
             <summary>قوانين العصابات</summary>
-            <div class="content">
-                • ممنوع ملاحقة العساكر بغرض المضايقات أو التدخل في عملهم.<br>
-                • يمنع التحلل أو الخروج من المدينة إلا بعد 15 دقيقة من انتهاء السيناريو.<br><br>
-                <strong>العداوة: يمنع تكوين عداوة لأسباب تافهة مثل:</strong><br>
-                - مشادة كلامية وضرب بالأيدي.<br>
-                - حادث بسيط بالسيارة.<br>
-                - خطف بدون سبب منطقي.<br><br>
-                • ممنوع الدخول في أي سيناريو إلا بمعرفة سابقة لا تقل عن أسبوع.
-            </div>
+            <div class="content">• يمنع ملاحقة العساكر.<br>• يمنع التحلل إلا بعد 15 دقيقة.<br>• لا عداوة لأسباب تافهة.</div>
         </details>
 
-        <!-- قوانين العدل المحدثة -->
         <details>
             <summary>قوانين العدل</summary>
             <div class="content">
-                • وزارة العدل هي الجهة العليا المسؤولة عن النظام القضائي والدستوري.<br>
-                • يجب على المواطن تقدير مكانة الموظف المنتسب لوزارة العدل بمن فيهم المحامين.<br><br>
-                <strong>1. الرتب الخاصة بوزارة العدل هي:</strong><br>
-                - قاضي.<br>
-                - مدعي عام.<br>
-                - محامي.<br><br>
-                <strong>3. رخصة للمحامين:</strong> رخصة المحامين هي وثيقة قانونية تصدرها الجهات المختصة تتيح للمحامي ممارسة المهنة.<br><br>
-                <strong>4. توكيل محامي:</strong><br>
-                - للمواطن حق توكيل محامي خاص مقيد للأمور التجارية أو أمور خاصة أخرى.<br>
-                - للمواطن حق توكيل محامي للقضية قائمة له أو عليه.<br>
-                - للمواطن أن يكون لديه محامي مع إثبات ملكية التوكيل من مكتب المحامين.
+                • الرتب: قاضي، مدعي عام، محامي.<br>
+                • للمواطن حق توكيل محامي مع إثبات ملكية التوكيل.
             </div>
         </details>
 
         <details>
             <summary>قوانين الإسعاف</summary>
-            <div class="content">
-                • علاج الجميع بدون تمييز.<br>
-                • الالتزام بالواقعية الطبية والاستجابة للبلاغات.
-            </div>
+            <div class="content">• علاج الجميع والالتزام بالواقعية الطبية.</div>
         </details>
 
         <details>
             <summary>قوانين المواطنين</summary>
-            <div class="content">
-                • الالتزام بقوانين المدينة العامة.<br>
-                • ممنوع التخريب العشوائي.
-            </div>
+            <div class="content">• الالتزام بقوانين المدينة العامة وعدم التخريب.</div>
         </details>
 
         <details>
             <summary>قوانين الميكانيكي</summary>
-            <div class="content">
-                • تصليح السيارات بشكل واقعي.<br>
-                • الالتزام بأسعار السيرفر المعتمدة.
-            </div>
+            <div class="content">• تصليح واقعي والالتزام بالأسعار المعتمدة.</div>
         </details>
     </div>
 
     <footer>
         <div class="footer-container">
             <div class="online-box">
-                <h2>من متواجد حالياً؟</h2>
+                <h2 style="font-size: 1.1rem; margin-bottom: 5px;">من متواجد حالياً؟</h2>
                 <a href="https://discord.com/widget?id=1273934372551524383&theme=dark" class="status-btn" target="_blank">عرض المتواجدين</a>
             </div>
 
@@ -313,4 +173,29 @@
                     <ul class="contact-links">
                         <li><a href="#"><i class="fas fa-home"></i> الرئيسية</a></li>
                         <li><a href="#"><i class="fas fa-file-alt"></i> القوانين</a></li>
-         
+                    </ul>
+                </div>
+
+                <div class="footer-box">
+                    <h3>تواصل معنا</h3>
+                    <ul class="contact-links">
+                        <li><a href="https://discord.gg/rGkrgHKK6j" target="_blank"><i class="fab fa-discord"></i> ديسكورد</a></li>
+                        <li><a href="https://www.instagram.com/nazwa_rp_1" target="_blank"><i class="fab fa-instagram"></i> إنستغرام</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-box">
+                    <h3>عن السيرفر</h3>
+                    <p style="color: #888; font-size: 0.85rem; line-height: 1.4;">
+                        سيرفر NAZWA RP يقدم تجربة رول بلاي واقعية واحترافية لبناء مجتمع منظم.
+                    </p>
+                </div>
+            </div>
+
+            <div class="copyright">
+                جميع الحقوق محفوظة © 2026 NAZWA RP
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
