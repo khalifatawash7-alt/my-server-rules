@@ -11,6 +11,7 @@
     <style>
         :root {
             --green: #2ecc71;
+            --dark-green: #1b5e20; /* اللون الأخضر الغامق عند الفتح */
             --dark: #050506;
             --card: rgba(30, 30, 35, 0.6);
         }
@@ -82,9 +83,11 @@
             transition: 0.3s;
         }
 
+        /* تغيير لون الخلفية للأخضر الغامق عند فتح القائمة */
         details[open] {
+            background: var(--dark-green);
             border: 1px solid var(--green);
-            box-shadow: 0 0 15px rgba(46, 204, 113, 0.1);
+            box-shadow: 0 0 15px rgba(46, 204, 113, 0.2);
         }
 
         summary {
@@ -113,33 +116,40 @@
         .content {
             padding: 0 25px 25px;
             line-height: 2.2;
-            color: #e0e0e0;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* تعديل قسم المتواجدين - إصلاح المشكلة */
-        .online-box {
-            width: 90%;
-            max-width: 1000px;
-            margin: 30px auto 60px;
-            background: rgba(46, 204, 113, 0.15);
-            border: 2px solid var(--green);
+        footer {
+            background: rgba(10, 10, 12, 0.98);
+            border-top: 3px solid var(--green);
+            padding: 60px 20px 30px;
+            margin-top: 50px;
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .online-box-footer {
+            background: rgba(46, 204, 113, 0.1);
+            border: 1px solid var(--green);
             border-radius: 20px;
-            padding: 40px;
+            padding: 30px;
             text-align: center;
-            backdrop-filter: blur(10px);
+            margin-bottom: 50px;
         }
 
-        .online-box h2 {
-            font-size: 2rem;
+        .online-box-footer h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
             color: #fff;
-            margin-bottom: 15px;
         }
 
-        .online-box p {
+        .online-box-footer p {
             color: #ccc;
-            margin-bottom: 25px;
-            font-size: 1.1rem;
+            margin-bottom: 20px;
         }
 
         .status-btn {
@@ -147,31 +157,23 @@
             background: var(--green);
             color: #000;
             text-decoration: none;
-            padding: 15px 35px;
-            border-radius: 12px;
+            padding: 12px 30px;
+            border-radius: 10px;
             font-weight: 800;
-            font-size: 1.1rem;
             transition: 0.3s;
         }
 
         .status-btn:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 20px var(--green);
-        }
-
-        /* الفوتر */
-        footer {
-            background: rgba(10, 10, 12, 0.95);
-            border-top: 3px solid var(--green);
-            padding: 50px 20px;
+            box-shadow: 0 0 15px var(--green);
         }
 
         .footer-grid {
-            max-width: 1100px;
-            margin: auto;
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             gap: 40px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 40px;
         }
 
         .footer-box h3 {
@@ -198,25 +200,21 @@
         .contact-list a i {
             color: var(--green);
             width: 20px;
-            font-size: 1.2rem;
-        }
-
-        .contact-list a:hover {
-            color: #fff;
-            padding-right: 10px;
+            text-align: center;
         }
 
         .copyright {
             text-align: center;
-            margin-top: 40px;
-            color: #555;
+            margin-top: 50px;
+            color: #666;
             font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 20px;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 850px) {
             .footer-grid { grid-template-columns: 1fr; text-align: center; }
             .contact-list a { justify-content: center; }
-            .header h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -232,57 +230,53 @@
     </div>
 
     <div class="container">
-
-        <!-- القوانين كاملة -->
-        <details open>
-            <summary>⚖️ قوانين عامة</summary>
+        <!-- القوانين بدون إيموجي ومع اللون الأخضر الغامق عند الفتح -->
+        <details>
+            <summary>قوانين عامة</summary>
             <div class="content">
                 • احترام الجميع وعدم السب أو العنصرية.<br>
                 • الالتزام بالشخصية داخل الرول بلاي.<br>
                 • الخوف على الحياة (Fear RP) وقت التهديد أو الخطر.<br>
                 • ممنوع استخدام معلومات خارج اللعبة (Meta Gaming).<br>
-                • ممنوع التصرف بشكل خارق للطبيعة (Power Gaming).<br>
-                • ممنوع القتل أو السرقة بدون سبب RP واضح.<br>
-                • ممنوع الخروج من السيرفر وقت السيناريو.<br>
-                • الهدف هو المتعة والواقعية.<br>
-                • ممنوع استغلال الثغرات أو الغش.
+                • ممنوع القتل أو السرقة بدون سبب RP واضح.
             </div>
         </details>
 
         <details>
-            <summary>👮 قوانين الشرطة</summary>
+            <summary>قوانين الشرطة</summary>
             <div class="content">
                 • احترام المواطنين والتعامل الرسمي.<br>
                 • استخدام السلاح يكون عند الضرورة القصوى.<br>
-                • إعطاء تحذير قبل إطلاق النار.<br>
-                • الالتزام بالأوامر والرتب العسكرية.<br>
-                • الحفاظ على أمن المدينة.<br>
-                • يمنع استخدام السلاح بشكل عشوائي.
+                • الالتزام بالأوامر والرتب العسكرية.
             </div>
         </details>
 
-        <details>
-            <summary>⚔️ قوانين العصابات</summary>
+        <details open>
+            <summary>قوانين العصابات</summary>
             <div class="content">
-                • لازم سبب قوي لأي هجوم أو خطف.<br>
-                • ممنوع قتل الرهائن بدون سبب.<br>
-                • احترام التحالفات والعداوات.<br>
-                • الالتزام بالواقعية في العمليات الإجرامية.
+                <!-- القوانين المضافة من الصورة -->
+                • ممنوع ملاحقة العساكر بغرض المضايقات أو التدخل في عملهم أو الترصد لهم وبناء عداوة معهم.<br>
+                • يمنع منعاً باتاً التحلل أو الخروج من المدينة إلا بعد مرور 15 دقيقة من انتهاء السيناريو.<br><br>
+                <strong>العداوة: يمنع تكوين عداوة لأسباب تافهة مثل:</strong><br>
+                - مشادة كلامية وضرب بالأيدي.<br>
+                - حادث بسيط بالسيارة.<br>
+                - خطف بدون سبب منطقي.<br>
+                * في هذه الحالات يجب التوجه لمركز الشرطة ورفع شكوى أو بلاغ واستكمال الرول بلاي.<br><br>
+                • ممنوع الدخول في أي سيناريو إلا إذا كانت بينكم معرفة رول بلاي لمدة لا تقل عن أسبوع.
             </div>
         </details>
 
         <details>
-            <summary>🚑 قوانين الإسعاف</summary>
+            <summary>قوانين الإسعاف</summary>
             <div class="content">
                 • علاج الجميع بدون تمييز.<br>
                 • الالتزام بالواقعية الطبية.<br>
-                • الاستجابة السريعة للبلاغات.<br>
-                • احترام خصوصية المصابين.
+                • الاستجابة السريعة للبلاغات.
             </div>
         </details>
 
         <details>
-            <summary>⚖️ قوانين العدل</summary>
+            <summary>قوانين العدل</summary>
             <div class="content">
                 • احترام القاضي والجلسة.<br>
                 • وجود أدلة قوية قبل الحكم.<br>
@@ -291,7 +285,7 @@
         </details>
 
         <details>
-            <summary>👨‍💼 قوانين المواطنين</summary>
+            <summary>قوانين المواطنين</summary>
             <div class="content">
                 • الالتزام بالقوانين العامة للمدينة.<br>
                 • احترام الجهات الحكومية.<br>
@@ -300,39 +294,34 @@
         </details>
 
         <details>
-            <summary>🛠️ قوانين الميكانيكي</summary>
+            <summary>قوانين الميكانيكي</summary>
             <div class="content">
                 • تصليح السيارات بشكل واقعي.<br>
-                • احترام الزبائن والالتزام بالأسعار.
+                • احترام الزبائن والالتزام بأسعار السيرفر.
             </div>
         </details>
-
-    </div>
-
-    <!-- قسم المتواجدين - تم الإصلاح -->
-    <div class="online-box">
-        <h2>من متواجد حالياً؟</h2>
-        <p>يمكنك رؤية جميع اللاعبين المتصلين وطاقم الإدارة مباشرة</p>
-        <a href="https://discord.com/widget?id=1273934372551524383&theme=dark" class="status-btn" target="_blank">
-            <i class="fas fa-users"></i> عرض المتواجدين الآن
-        </a>
     </div>
 
     <footer>
-        <div class="footer-grid">
-            <div class="footer-box">
-                <h3>روابط</h3>
-                <div class="contact-list">
-                    <a href="#"><i class="fas fa-home"></i> الرئيسية</a>
-                    <a href="#"><i class="fas fa-gavel"></i> القوانين</a>
-                </div>
+        <div class="footer-container">
+            <div class="online-box-footer">
+                <h2>من متواجد حالياً؟</h2>
+                <p>شاهد قائمة طاقم الإدارة واللاعبين المتصلين بالسيرفر الآن</p>
+                <a href="https://discord.com/widget?id=1273934372551524383&theme=dark" class="status-btn" target="_blank">
+                    <i class="fas fa-users"></i> عرض المتواجدين الآن
+                </a>
             </div>
 
-            <div class="footer-box">
-                <h3>تواصل معنا</h3>
-                <div class="contact-list">
-                    <a href="https://discord.gg/rGkrgHKK6j" target="_blank">
-                        <i class="fab fa-discord"></i> ديسكورد السيرفر
-                    </a>
-                    <a href="https://www.instagram.com/nazwa_rp_1" target="_blank">
-                        <i clas
+            <div class="footer-grid">
+                <div class="footer-box">
+                    <h3>روابط سريعة</h3>
+                    <div class="contact-list">
+                        <a href="#"><i class="fas fa-home"></i> الرئيسية</a>
+                        <a href="#"><i class="fas fa-gavel"></i> القوانين</a>
+                    </div>
+                </div>
+
+                <div class="footer-box">
+                    <h3>تواصل معنا</h3>
+                    <div class="contact-list">
+                        <a href="h
