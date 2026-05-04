@@ -120,6 +120,8 @@
             border-top: 4px solid var(--green);
             padding: 50px 20px;
             margin-top: 40px;
+            position: relative;
+            z-index: 10;
         }
 
         .footer-container {
@@ -127,31 +129,12 @@
             margin: auto;
         }
 
-        .online-box {
-            background: rgba(46, 204, 113, 0.08);
-            border: 1px solid var(--green);
-            border-radius: 15px;
-            padding: 25px;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .status-btn {
-            display: inline-block;
-            background: var(--green);
-            color: #000;
-            text-decoration: none;
-            padding: 10px 25px;
-            border-radius: 8px;
-            font-weight: bold;
-            margin-top: 15px;
-        }
-
         .footer-grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             gap: 30px;
             text-align: right;
+            margin-top: 20px;
         }
 
         .footer-box h3 {
@@ -183,9 +166,30 @@
             text-align: center;
             margin-top: 40px;
             padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            color: #666;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #888;
             font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .online-box {
+            background: rgba(46, 204, 113, 0.08);
+            border: 1px solid var(--green);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .status-btn {
+            display: inline-block;
+            background: var(--green);
+            color: #000;
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 10px;
         }
 
         @media (max-width: 768px) {
@@ -206,6 +210,7 @@
     </div>
 
     <div class="container">
+        <!-- قوانين عامة -->
         <details>
             <summary>قوانين عامة</summary>
             <div class="content">
@@ -213,36 +218,60 @@
                 • الالتزام بالشخصية داخل الرول بلاي.<br>
                 • الخوف على الحياة (Fear RP) وقت التهديد أو الخطر.<br>
                 • ممنوع استخدام معلومات خارج اللعبة (Meta Gaming).<br>
-                • ممنوع القتل أو السرقة بدون سبب RP واضح.<br>
-                • ممنوع الخروج من السيرفر وقت السيناريو.<br>
-                • الهدف هو المتعة والواقعية.<br>
-                • ممنوع استغلال الثغرات أو الغش.
+                • ممنوع القتل أو السرقة بدون سبب RP واضح.
             </div>
         </details>
 
+        <!-- قوانين الشرطة المحدثة -->
         <details>
             <summary>قوانين الشرطة</summary>
             <div class="content">
                 • احترام المواطنين والتعامل الرسمي.<br>
                 • استخدام السلاح يكون عند الضرورة القصوى.<br>
-                • إعطاء تحذير قبل إطلاق النار.<br>
-                • الالتزام بالأوامر والرتب العسكرية.<br>
-                • الحفاظ على أمن المدينة.<br>
-                • يمنع استخدام السلاح بشكل عشوائي.
+                • الالتزام بالأوامر والرتب العسكرية.<br><br>
+                <strong>6. قوانين الأمن العام والنظام:</strong><br>
+                • المشاركة في تجمعات غير مرخصة ممنوعة.<br>
+                • الإساءة لرجال الأمن أو تعطيلهم جريمة.<br>
+                • أي سلوك يسبب فوضى أو تهديد للمجتمع عليه عقوبات.<br><br>
+                <strong>7. قوانين السلاح:</strong><br>
+                • يمنع منعاً باتاً استخدام السلاح في أي حال إلا إذا وجه السلاح عليك.<br>
+                • تنبيه: إذا وجه السلاح عليك تستخدم الصلاحيات المذكورة.<br><br>
+                <strong>الصلاحيات:</strong><br>
+                • إطلاق على العجلات.<br>
+                • نطحه وتكلبش.<br>
+                • إطلاق على السيارة بتيزر.
             </div>
         </details>
 
-        <details open>
+        <!-- قوانين العصابات -->
+        <details>
             <summary>قوانين العصابات</summary>
             <div class="content">
-                • ممنوع ملاحقة العساكر بغرض المضايقات أو التدخل في عملهم أو الترصد لهم وبناء عداوة معهم.<br>
-                • يمنع منعاً باتاً التحلل أو الخروج من المدينة إلا بعد مرور 15 دقيقة من انتهاء السيناريو.<br><br>
+                • ممنوع ملاحقة العساكر بغرض المضايقات أو التدخل في عملهم.<br>
+                • يمنع التحلل أو الخروج من المدينة إلا بعد 15 دقيقة من انتهاء السيناريو.<br><br>
                 <strong>العداوة: يمنع تكوين عداوة لأسباب تافهة مثل:</strong><br>
                 - مشادة كلامية وضرب بالأيدي.<br>
                 - حادث بسيط بالسيارة.<br>
-                - خطف بدون سبب منطقي.<br>
-                * في هذه الحالات يجب التوجه لمركز الشرطة ورفع شكوى أو بلاغ واستكمال الرول بلاي.<br><br>
-                • ممنوع الدخول في أي سيناريو إلا إذا كانت بينكم معرفة رول بلاي لمدة لا تقل عن أسبوع.
+                - خطف بدون سبب منطقي.<br><br>
+                • ممنوع الدخول في أي سيناريو إلا بمعرفة سابقة لا تقل عن أسبوع.
+            </div>
+        </details>
+
+        <!-- قوانين العدل المحدثة -->
+        <details>
+            <summary>قوانين العدل</summary>
+            <div class="content">
+                • وزارة العدل هي الجهة العليا المسؤولة عن النظام القضائي والدستوري.<br>
+                • يجب على المواطن تقدير مكانة الموظف المنتسب لوزارة العدل بمن فيهم المحامين.<br><br>
+                <strong>1. الرتب الخاصة بوزارة العدل هي:</strong><br>
+                - قاضي.<br>
+                - مدعي عام.<br>
+                - محامي.<br><br>
+                <strong>3. رخصة للمحامين:</strong> رخصة المحامين هي وثيقة قانونية تصدرها الجهات المختصة تتيح للمحامي ممارسة المهنة.<br><br>
+                <strong>4. توكيل محامي:</strong><br>
+                - للمواطن حق توكيل محامي خاص مقيد للأمور التجارية أو أمور خاصة أخرى.<br>
+                - للمواطن حق توكيل محامي للقضية قائمة له أو عليه.<br>
+                - للمواطن أن يكون لديه محامي مع إثبات ملكية التوكيل من مكتب المحامين.
             </div>
         </details>
 
@@ -250,27 +279,15 @@
             <summary>قوانين الإسعاف</summary>
             <div class="content">
                 • علاج الجميع بدون تمييز.<br>
-                • الالتزام بالواقعية الطبية.<br>
-                • الاستجابة السريعة للبلاغات.<br>
-                • احترام خصوصية المصابين.
-            </div>
-        </details>
-
-        <details>
-            <summary>قوانين العدل</summary>
-            <div class="content">
-                • احترام القاضي والجلسة.<br>
-                • وجود أدلة قوية قبل الحكم.<br>
-                • المحامي له حق الدفاع الكامل.
+                • الالتزام بالواقعية الطبية والاستجابة للبلاغات.
             </div>
         </details>
 
         <details>
             <summary>قوانين المواطنين</summary>
             <div class="content">
-                • الالتزام بالقوانين العامة للمدينة.<br>
-                • احترام الجهات الحكومية.<br>
-                • ممنوع التخريب بدون سبب RP.
+                • الالتزام بقوانين المدينة العامة.<br>
+                • ممنوع التخريب العشوائي.
             </div>
         </details>
 
@@ -278,7 +295,7 @@
             <summary>قوانين الميكانيكي</summary>
             <div class="content">
                 • تصليح السيارات بشكل واقعي.<br>
-                • احترام الزبائن والالتزام بأسعار السيرفر المعتمدة.
+                • الالتزام بأسعار السيرفر المعتمدة.
             </div>
         </details>
     </div>
@@ -287,31 +304,13 @@
         <div class="footer-container">
             <div class="online-box">
                 <h2>من متواجد حالياً؟</h2>
-                <p>تفضل بزيارة قائمة اللاعبين المتصلين الآن</p>
-                <a href="https://discord.com/widget?id=1273934372551524383&theme=dark" class="status-btn" target="_blank">
-                    عرض المتواجدين
-                </a>
+                <a href="https://discord.com/widget?id=1273934372551524383&theme=dark" class="status-btn" target="_blank">عرض المتواجدين</a>
             </div>
 
             <div class="footer-grid">
                 <div class="footer-box">
-                    <h3>روابط سريعة</h3>
+                    <h3>روابط</h3>
                     <ul class="contact-links">
                         <li><a href="#"><i class="fas fa-home"></i> الرئيسية</a></li>
                         <li><a href="#"><i class="fas fa-file-alt"></i> القوانين</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-box">
-                    <h3>تواصل معنا</h3>
-                    <ul class="contact-links">
-                        <li><a href="https://discord.gg/rGkrgHKK6j" target="_blank"><i class="fab fa-discord"></i> ديسكورد السيرفر</a></li>
-                        <li><a href="https://www.instagram.com/nazwa_rp_1" target="_blank"><i class="fab fa-instagram"></i> إنستغرام</a></li>
-                        <li><a href="mailto:nazwa11rp@gmail.com"><i class="fas fa-envelope"></i> البريد الإلكتروني</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-box">
-                    <h3>عن السيرفر</h3>
-                    <p style="color: #888; font-size: 0.95rem; line-height: 1.6;">
-                        سيرفر NAZWA
+         
