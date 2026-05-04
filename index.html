@@ -11,9 +11,9 @@
     <style>
         :root {
             --green: #2ecc71;
-            --dark-green: #1b5e20; /* اللون الأخضر الغامق عند الفتح */
+            --dark-green: #145a32; /* لون أخضر غامق للبطاقات من الخارج */
             --dark: #050506;
-            --card: rgba(30, 30, 35, 0.6);
+            --card-text: #ffffff;
         }
 
         * {
@@ -26,7 +26,6 @@
             background: var(--dark);
             color: white;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow-x: hidden;
         }
 
         .hero-bg {
@@ -42,89 +41,87 @@
 
         .header {
             text-align: center;
-            padding: 80px 20px 40px;
+            padding: 60px 20px 30px;
         }
 
         .header img {
-            width: 150px;
-            height: 150px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             border: 4px solid var(--green);
-            box-shadow: 0 0 25px rgba(46, 204, 113, 0.4);
-            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(46, 204, 113, 0.4);
+            margin-bottom: 15px;
         }
 
         .header h1 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 900;
-            text-shadow: 0 0 20px rgba(46, 204, 113, 0.3);
         }
 
         .header p {
             color: var(--green);
-            letter-spacing: 5px;
+            letter-spacing: 3px;
             font-weight: bold;
-            font-size: 1.2rem;
         }
 
         .container {
             width: 90%;
             max-width: 1000px;
             margin: auto;
-            padding-bottom: 50px;
+            padding-bottom: 40px;
         }
 
+        /* تعديل البطاقة لتكون خضراء من الخارج */
         details {
-            background: var(--card);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            margin-bottom: 15px;
-            transition: 0.3s;
-        }
-
-        /* تغيير لون الخلفية للأخضر الغامق عند فتح القائمة */
-        details[open] {
-            background: var(--dark-green);
+            background: var(--dark-green); /* اللون الأخضر من الخارج */
             border: 1px solid var(--green);
-            box-shadow: 0 0 15px rgba(46, 204, 113, 0.2);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            transition: 0.3s;
+            overflow: hidden;
         }
 
         summary {
-            padding: 25px;
+            padding: 20px;
             cursor: pointer;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: bold;
             display: flex;
             justify-content: space-between;
             align-items: center;
             list-style: none;
+            color: var(--card-text);
         }
 
         summary::after {
             content: "\f0fe";
             font-family: "Font Awesome 5 Free";
-            color: var(--green);
-            transition: 0.3s;
+            font-weight: 900;
+            color: white;
+        }
+
+        details[open] summary {
+            background: rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         details[open] summary::after {
             content: "\f146";
-            transform: rotate(180deg);
         }
 
         .content {
-            padding: 0 25px 25px;
-            line-height: 2.2;
-            color: #ffffff;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            line-height: 1.8;
+            background: rgba(0, 0, 0, 0.3);
+            color: #eee;
         }
 
+        /* الفوتر - الصندوق الأسود السفلي */
         footer {
-            background: rgba(10, 10, 12, 0.98);
-            border-top: 3px solid var(--green);
-            padding: 60px 20px 30px;
-            margin-top: 50px;
+            background: #0a0a0c;
+            border-top: 4px solid var(--green);
+            padding: 50px 20px;
+            margin-top: 40px;
         }
 
         .footer-container {
@@ -132,24 +129,14 @@
             margin: auto;
         }
 
-        .online-box-footer {
-            background: rgba(46, 204, 113, 0.1);
+        /* بوكس المتواجدين */
+        .online-box {
+            background: rgba(46, 204, 113, 0.08);
             border: 1px solid var(--green);
-            border-radius: 20px;
-            padding: 30px;
+            border-radius: 15px;
+            padding: 25px;
             text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .online-box-footer h2 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            color: #fff;
-        }
-
-        .online-box-footer p {
-            color: #ccc;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
         }
 
         .status-btn {
@@ -157,64 +144,56 @@
             background: var(--green);
             color: #000;
             text-decoration: none;
-            padding: 12px 30px;
-            border-radius: 10px;
-            font-weight: 800;
-            transition: 0.3s;
-        }
-
-        .status-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px var(--green);
+            padding: 10px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 15px;
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            gap: 40px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding-top: 40px;
+            gap: 30px;
+            text-align: right;
         }
 
         .footer-box h3 {
             color: var(--green);
-            margin-bottom: 20px;
-            font-size: 1.3rem;
+            margin-bottom: 15px;
         }
 
-        .contact-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+        .contact-links {
+            list-style: none;
         }
 
-        .contact-list a {
-            color: #bbb;
+        .contact-links li {
+            margin-bottom: 10px;
+        }
+
+        .contact-links a {
+            color: #ccc;
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 12px;
-            transition: 0.3s;
+            gap: 10px;
         }
 
-        .contact-list a i {
+        .contact-links a:hover {
             color: var(--green);
-            width: 20px;
-            text-align: center;
         }
 
         .copyright {
             text-align: center;
-            margin-top: 50px;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             color: #666;
             font-size: 0.9rem;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding-top: 20px;
         }
 
-        @media (max-width: 850px) {
+        @media (max-width: 768px) {
             .footer-grid { grid-template-columns: 1fr; text-align: center; }
-            .contact-list a { justify-content: center; }
+            .contact-links a { justify-content: center; }
         }
     </style>
 </head>
@@ -224,21 +203,20 @@
     <div class="hero-bg"></div>
 
     <div class="header">
-        <img src="https://cdn.discordapp.com/attachments/1463594306525724704/1500428814478610512/IMG_5109.png?ex=69f866b9&is=69f71539&hm=7e21bda0a3f767d54507020675fddce0af1195647386f898edf141522ab296b1&" alt="Logo">
+        <img src="https://cdn.discordapp.com/attachments/1463594306525724704/1500428814478610512/IMG_5109.png?ex=69f866b9&is=69f71539&hm=7e21bda0a3f767d54507020675fddce0af1195647386f898edf141522ab296b1&" alt="NAZWA Logo">
         <h1>قوانين</h1>
         <p>NAZWA RP</p>
     </div>
 
     <div class="container">
-        <!-- القوانين بدون إيموجي ومع اللون الأخضر الغامق عند الفتح -->
+        <!-- القوانين -->
         <details>
             <summary>قوانين عامة</summary>
             <div class="content">
                 • احترام الجميع وعدم السب أو العنصرية.<br>
                 • الالتزام بالشخصية داخل الرول بلاي.<br>
                 • الخوف على الحياة (Fear RP) وقت التهديد أو الخطر.<br>
-                • ممنوع استخدام معلومات خارج اللعبة (Meta Gaming).<br>
-                • ممنوع القتل أو السرقة بدون سبب RP واضح.
+                • ممنوع استخدام معلومات خارج اللعبة (Meta Gaming).
             </div>
         </details>
 
@@ -246,23 +224,20 @@
             <summary>قوانين الشرطة</summary>
             <div class="content">
                 • احترام المواطنين والتعامل الرسمي.<br>
-                • استخدام السلاح يكون عند الضرورة القصوى.<br>
-                • الالتزام بالأوامر والرتب العسكرية.
+                • الالتزام بالأوامر والرتب العسكرية.<br>
+                • استخدام السلاح يكون عند الضرورة القصوى.
             </div>
         </details>
 
-        <details open>
+        <details>
             <summary>قوانين العصابات</summary>
             <div class="content">
-                <!-- القوانين المضافة من الصورة -->
-                • ممنوع ملاحقة العساكر بغرض المضايقات أو التدخل في عملهم أو الترصد لهم وبناء عداوة معهم.<br>
-                • يمنع منعاً باتاً التحلل أو الخروج من المدينة إلا بعد مرور 15 دقيقة من انتهاء السيناريو.<br><br>
+                • ممنوع ملاحقة العساكر بغرض المضايقات أو التدخل في عملهم.<br>
+                • يمنع التحلل أو الخروج من المدينة إلا بعد 15 دقيقة من انتهاء السيناريو.<br><br>
                 <strong>العداوة: يمنع تكوين عداوة لأسباب تافهة مثل:</strong><br>
-                - مشادة كلامية وضرب بالأيدي.<br>
-                - حادث بسيط بالسيارة.<br>
-                - خطف بدون سبب منطقي.<br>
-                * في هذه الحالات يجب التوجه لمركز الشرطة ورفع شكوى أو بلاغ واستكمال الرول بلاي.<br><br>
-                • ممنوع الدخول في أي سيناريو إلا إذا كانت بينكم معرفة رول بلاي لمدة لا تقل عن أسبوع.
+                - مشادة كلامية أو حادث بسيط.<br>
+                - خطف بدون سبب منطقي.<br><br>
+                • ممنوع الدخول في أي سيناريو إلا بمعرفة سابقة (أسبوع على الأقل).
             </div>
         </details>
 
@@ -270,26 +245,23 @@
             <summary>قوانين الإسعاف</summary>
             <div class="content">
                 • علاج الجميع بدون تمييز.<br>
-                • الالتزام بالواقعية الطبية.<br>
-                • الاستجابة السريعة للبلاغات.
+                • الالتزام بالواقعية الطبية والاستجابة للبلاغات.
             </div>
         </details>
 
         <details>
             <summary>قوانين العدل</summary>
             <div class="content">
-                • احترام القاضي والجلسة.<br>
-                • وجود أدلة قوية قبل الحكم.<br>
-                • المحامي له حق الدفاع الكامل.
+                • احترام الجلسة والقاضي.<br>
+                • المحامي له حق الدفاع الكامل بوجود أدلة.
             </div>
         </details>
 
         <details>
             <summary>قوانين المواطنين</summary>
             <div class="content">
-                • الالتزام بالقوانين العامة للمدينة.<br>
-                • احترام الجهات الحكومية.<br>
-                • ممنوع التخريب بدون سبب RP.
+                • الالتزام بقوانين المدينة العامة.<br>
+                • ممنوع التخريب العشوائي.
             </div>
         </details>
 
@@ -297,31 +269,56 @@
             <summary>قوانين الميكانيكي</summary>
             <div class="content">
                 • تصليح السيارات بشكل واقعي.<br>
-                • احترام الزبائن والالتزام بأسعار السيرفر.
+                • الالتزام بأسعار السيرفر المعتمدة.
             </div>
         </details>
     </div>
 
     <footer>
         <div class="footer-container">
-            <div class="online-box-footer">
+            <!-- قسم المتواجدين -->
+            <div class="online-box">
                 <h2>من متواجد حالياً؟</h2>
-                <p>شاهد قائمة طاقم الإدارة واللاعبين المتصلين بالسيرفر الآن</p>
+                <p>تفضل بزيارة قائمة اللاعبين المتصلين الآن</p>
                 <a href="https://discord.com/widget?id=1273934372551524383&theme=dark" class="status-btn" target="_blank">
-                    <i class="fas fa-users"></i> عرض المتواجدين الآن
+                    عرض المتواجدين
                 </a>
             </div>
 
+            <!-- شبكة المعلومات السفلى -->
             <div class="footer-grid">
                 <div class="footer-box">
-                    <h3>روابط سريعة</h3>
-                    <div class="contact-list">
-                        <a href="#"><i class="fas fa-home"></i> الرئيسية</a>
-                        <a href="#"><i class="fas fa-gavel"></i> القوانين</a>
-                    </div>
+                    <h3>روابط</h3>
+                    <ul class="contact-links">
+                        <li><a href="#"><i class="fas fa-home"></i> الرئيسية</a></li>
+                        <li><a href="#"><i class="fas fa-file-alt"></i> القوانين</a></li>
+                    </ul>
                 </div>
 
                 <div class="footer-box">
                     <h3>تواصل معنا</h3>
-                    <div class="contact-list">
-                        <a href="h
+                    <ul class="contact-links">
+                        <li><a href="https://discord.gg/rGkrgHKK6j" target="_blank"><i class="fab fa-discord"></i> ديسكورد السيرفر</a></li>
+                        <li><a href="https://www.instagram.com/nazwa_rp_1" target="_blank"><i class="fab fa-instagram"></i> إنستغرام</a></li>
+                        <li><a href="mailto:nazwa11rp@gmail.com"><i class="fas fa-envelope"></i> البريد الإلكتروني</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-box">
+                    <h3>عن السيرفر</h3>
+                    <p style="color: #888; font-size: 0.95rem; line-height: 1.6;">
+                        سيرفر NAZWA RP يهدف لتقديم تجربة رول بلاي واقعية وممتعة، مع إدارة متفاعلة ومجتمع محترم.
+                    </p>
+                </div>
+            </div>
+
+            <!-- الحقوق -->
+            <div class="copyright">
+                جميع الحقوق محفوظة © 2026 NAZWA RP
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
