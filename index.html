@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>قوانين سيرفر NAZWA</title>
-    <!-- مكتبة الأيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -172,41 +171,43 @@
             padding-right: 5px;
         }
 
-        /* قسم المتواجدين */
-        .bottom-discord {
+        /* بطاقة المتواجدين */
+        .online-status-card {
             width: 94%;
             max-width: 1100px;
             margin: 40px auto 70px;
-            background: rgba(255, 255, 255, .05);
-            border: 1px solid rgba(255, 255, 255, .08);
+            background: rgba(46, 204, 113, 0.1);
+            border: 2px solid var(--green);
             backdrop-filter: blur(15px);
             border-radius: 24px;
-            padding: 45px;
+            padding: 40px;
             text-align: center;
-        }
-
-        .discord-widget-container {
-            margin-top: 30px;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--green);
-        }
-
-        .discord-btn {
-            display: inline-block;
-            margin-top: 25px;
-            background: var(--green);
-            color: black;
+            cursor: pointer;
             text-decoration: none;
-            padding: 14px 28px;
-            border-radius: 14px;
-            font-weight: bold;
-            transition: .2s;
+            display: block;
+            transition: 0.3s ease;
         }
 
-        .discord-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(46, 204, 113, 0.4);
+        .online-status-card:hover {
+            transform: translateY(-10px);
+            background: rgba(46, 204, 113, 0.2);
+            box-shadow: 0 10px 30px rgba(46, 204, 113, 0.2);
+        }
+
+        .online-status-card i {
+            font-size: 3rem;
+            color: var(--green);
+            margin-bottom: 20px;
+        }
+
+        .online-status-card h2 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .online-status-card p {
+            color: #ddd;
         }
 
         .copyright {
@@ -235,7 +236,7 @@
     </div>
 
     <div class="container">
-        <!-- القوانين (نفس محتواك السابق) -->
+
         <details open>
             <summary>⚖️ قوانين عامة</summary>
             <div class="content">
@@ -245,61 +246,81 @@
                 • ممنوع استخدام معلومات خارج اللعبة داخل اللعبة (Meta Gaming).<br>
                 • ممنوع التصرف بشكل غير واقعي أو خارق (Power Gaming).<br>
                 • ممنوع القتل أو السرقة بدون سبب RP واضح.<br>
-                • ممنوع الخروج من السيرفر وقت السيناريو.
+                • ممنوع الخروج من السيرفر وقت السيناريو.<br>
+                • احترام القوانين والإدارة واللاعبين.<br>
+                • الهدف هو المتعة والواقعية مو الفوز.<br>
+                • ممنوع استغلال البقزات أو الغش.
             </div>
         </details>
-        <!-- يمكنك إضافة باقي الـ details هنا كما كانت -->
-    </div>
 
-    <!-- قسم المتواجدين المباشر -->
-    <div class="bottom-discord">
-        <h2 style="color: var(--green); font-size: 2rem; margin-bottom: 10px;">حالة السيرفر والمتواجدين</h2>
-        <p style="color: #ccc;">يمكنك رؤية المتصلين حالياً وطاقم العمل مباشرة من هنا</p>
-        
-        <div class="discord-widget-container">
-            <!-- ملاحظة: استبدل ID السيرفر بـ ID الخاص بك إذا لم يعمل هذا الودجت -->
-            <iframe src="https://discord.com/widget?id=123456789012345678&theme=dark" width="100%" height="400" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-        </div>
-
-        <a class="discord-btn" href="https://discord.gg/rGkrgHKK6j" target="_blank">
-            <i class="fab fa-discord"></i> انضم إلينا الآن
-        </a>
-    </div>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-box">
-                <h3>روابط سريعة</h3>
-                <div class="contact-links">
-                    <a href="#"><i class="fas fa-home"></i> الرئيسية</a>
-                    <a href="#"><i class="fas fa-gavel"></i> القوانين</a>
-                </div>
+        <details>
+            <summary>👮 قوانين الشرطة</summary>
+            <div class="content">
+                • احترام المواطنين والتعامل الرسمي.<br>
+                • استخدام السلاح يكون عند الضرورة فقط.<br>
+                • إعطاء تحذير قبل إطلاق النار.<br>
+                • الالتزام بالأوامر والرتب العسكرية.<br>
+                • الحفاظ على أمن المدينة والنظام العام.<br>
+                • يمنع منعاً باتاً استخدام السلاح بشكل عشوائي.<br>
+                • إذا معك سلاح أبيض يتم التعامل بحذر وتحذير أولاً.<br>
+                • إذا معك سلاح ناري يتم التعامل فوراً حسب التهديد.<br>
+                • إذا تم توجيه السلاح عليك يُسمح باستخدام الصلاحيات حسب الحالة.<br>
+                • إطلاق النار على العجلات لإيقاف المركبة.<br>
+                • النطح + تقييد المشتبه (كلبشة).<br>
+                • استخدام التيزر ضد الشخص أو السيارة عند الحاجة.
             </div>
+        </details>
 
-            <div class="footer-box">
-                <h3>تواصل معنا</h3>
-                <div class="contact-links">
-                    <a href="https://discord.gg/rGkrgHKK6j" target="_blank">
-                        <i class="fab fa-discord"></i> الديسكورد
-                    </a>
-                    <a href="https://www.instagram.com/nazwa_rp_1" target="_blank">
-                        <i class="fab fa-instagram"></i> الإنستغرام
-                    </a>
-                    <a href="mailto:nazwa11rp@gmail.com">
-                        <i class="fas fa-envelope"></i> البريد الإلكتروني
-                    </a>
-                </div>
+        <details>
+            <summary>⚔️ قوانين العصابات</summary>
+            <div class="content">
+                • لازم سبب قوي لأي هجوم أو خطف.<br>
+                • ممنوع قتل الرهائن بدون سبب RP.<br>
+                • احترام التحالفات والعداوات.<br>
+                • الالتزام بالواقعية في العمليات.<br>
+                • ممنوع الهجوم العشوائي.<br>
+                • الالتزام بعدد أفراد حسب قوانين السيرفر.
             </div>
+        </details>
 
-            <div class="footer-box">
-                <h3>حول السيرفر</h3>
-                <p style="color: #bbb; line-height: 1.8;">
-                    سيرفر NAZWA RP يقدم تجربة رول بلاي واقعية واحترافية للجميع، مع إدارة تسهر على راحتكم.
-                </p>
+        <details>
+            <summary>🚑 قوانين الإسعاف / الصحة</summary>
+            <div class="content">
+                • علاج الجميع بدون تمييز.<br>
+                • الالتزام بالواقعية الطبية.<br>
+                • الاستجابة السريعة للبلاغات.<br>
+                • احترام خصوصية المصابين.
             </div>
-        </div>
-        <div class="copyright">جميع الحقوق محفوظة © 2026 NAZWA RP</div>
-    </footer>
+        </details>
 
-</body>
-</html>
+        <details>
+            <summary>⚖️ قوانين العدل / المحكمة</summary>
+            <div class="content">
+                • احترام القاضي والجلسة.<br>
+                • الكلام فقط بإذن.<br>
+                • وجود أدلة قبل الحكم.<br>
+                • المحامي له حق الدفاع الكامل.<br>
+                • ممنوع التهديد داخل المحكمة.
+            </div>
+        </details>
+
+        <details>
+            <summary>👨‍💼 قوانين المواطنين</summary>
+            <div class="content">
+                • الالتزام بالقوانين العامة.<br>
+                • احترام الجهات الحكومية.<br>
+                • التصرف بواقعية داخل الرول بلاي.<br>
+                • ممنوع الفوضى أو التخريب بدون سبب RP.<br>
+                • المشاركة في التجمعات غير المرخصة ممنوعة.<br>
+                • الإساءة لرجال الأمن أو تعطيلهم تعتبر جريمة.<br>
+                • أي سلوك يسبب فوضى أو تهديد للمجتمع عليه عقوبات.
+            </div>
+        </details>
+
+        <details>
+            <summary>🛠️ قوانين الميكانيكي</summary>
+            <div class="content">
+                • تصليح السيارات بشكل واقعي.<br>
+                • احترام الزبائن.<br>
+                • الالتزام بأسعار السيرفر.
+            </div
